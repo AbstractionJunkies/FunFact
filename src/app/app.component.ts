@@ -28,7 +28,7 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent implements OnInit {
   title: string;
-  url: string = '/api/test';
+  url: string = 'http://fun-fact-api.herokuapp.com/api/test';
 
   constructor(private _http: Http) { }
 
