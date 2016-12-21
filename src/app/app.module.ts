@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+import { AppRouteModule } from './routers/app-route.module';
 
 import { AppComponent } from './app.component';
 import { TestCmpComponent } from './test-cmp/test-cmp.component';
@@ -17,7 +18,8 @@ import { TestCmpComponent } from './test-cmp/test-cmp.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRouteModule
   ],
   providers: [],
   bootstrap: [

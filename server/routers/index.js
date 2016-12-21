@@ -12,9 +12,9 @@ module.exports = function ({ app, controllers }) {
             require(path.join(__dirname, file))({ app, controllers });
         });
 
-    app.get('*', (req, res) => {
-        // res.redirect('/home/error');
-        // TODO: set the redirect page
-        console.log('wrong page');
-    });
+    // app.get('*', (req, res) => {
+    //     // res.redirect('/home/error');
+    //     // TODO: set the redirect page
+    //     console.log('wrong page');
+    // });
 };
