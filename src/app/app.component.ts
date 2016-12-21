@@ -28,7 +28,7 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent implements OnInit {
   title: string;
-  url: string = 'http://localhost:1337/api/test';
+  url: string = '/api/test';
 
   constructor(private _http: Http) { }
 
