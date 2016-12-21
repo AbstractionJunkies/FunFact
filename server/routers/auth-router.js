@@ -8,7 +8,7 @@ module.exports = function ({  app, controllers }) {
     const authController = controllers.auth;
 
     router
-        .post('/login', passport.authenticate('local'), authController.login)
+        .post('/login', authController.login)
         .post('/register', authController.register)
         .post('/logout', authController.logout);
 

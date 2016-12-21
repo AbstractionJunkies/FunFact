@@ -1,8 +1,30 @@
 'use strict';
 
-module.exports = function ({data, encryption}) {
+module.exports = function ({data, encryption, passport}) {
     return {
-        login(req, res) {
+        login(req, res, next) {
+
+            passport.authenticate('local', (err, user, info) => {
+                if (err) {
+                    return next(err);
+                }
+                if (!user) {
+                    return res.status(401).json({
+                        success: false,
+                        message: 'Invalid username or password'
+                    });
+                }
+                req.logIn(user, function (err) {
+                    if (err) {
+                        return next(err);
+                    }
+
+                    return res.status(200).json({
+                        success: true,
+                        message: `User ${user.username} logged in succesfully`
+                    });
+                });
+            })(req, res, next);
 
         },
         register(req, res) {
