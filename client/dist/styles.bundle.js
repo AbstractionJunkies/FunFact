@@ -387,7 +387,7 @@ exports = module.exports = __webpack_require__(327)();
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n  background-color: #f8f8f8;\n}\n\n.loader {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 1;\n  width: 50px;\n  height: 50px;\n  margin: -25px 0 0 -25px;\n  -webkit-animation: spin 2s linear infinite;\n  animation: spin 1s linear infinite;\n  border: 5px solid #f3f3f3;\n  border-top: 5px solid #555;\n  border-radius: 50%;\n}\n\n@-webkit-keyframes spin {\n  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }\n  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }\n}\n\n@keyframes spin {\n  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }\n  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody {\r\n  background-color: #f8f8f8;\r\n}\r\n\r\n.loader {\r\n  position: absolute;\r\n  left: 50%;\r\n  top: 50%;\r\n  z-index: 1;\r\n  width: 50px;\r\n  height: 50px;\r\n  margin: -25px 0 0 -25px;\r\n  -webkit-animation: spin 2s linear infinite;\r\n  animation: spin 1s linear infinite;\r\n  border: 5px solid #f3f3f3;\r\n  border-top: 5px solid #555;\r\n  border-radius: 50%;\r\n}\r\n\r\n@-webkit-keyframes spin {\r\n  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }\r\n  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }\r\n}\r\n\r\n@keyframes spin {\r\n  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }\r\n  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }\r\n}\r\n", ""]);
 
 // exports
 

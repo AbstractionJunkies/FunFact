@@ -38556,7 +38556,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var AppComponent = (function () {
     function AppComponent(_http) {
         this._http = _http;
-        this.url = 'http://localhost:1337/api/test';
+        this.url = '/api/test';
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -54164,7 +54164,7 @@ process.umask = function() { return 0; };
 /* 591 */
 /***/ function(module, exports) {
 
-module.exports = ".main {\n  width: 800px;\n  padding: 20px;\n}\n"
+module.exports = ".main {\r\n  width: 800px;\r\n  padding: 20px;\r\n}\r\n"
 
 /***/ },
 /* 592 */
@@ -54182,7 +54182,7 @@ module.exports = "<h1>{{title}}</h1>"
 /* 594 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  test-cmp works!\n</p>\n"
+module.exports = "<p>\r\n  test-cmp works!\r\n</p>\r\n"
 
 /***/ },
 /* 595 */
