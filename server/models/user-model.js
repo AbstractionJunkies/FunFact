@@ -14,14 +14,6 @@ function hasRole(user, role) {
 }
 
 const userSchema = new mongoose.Schema({
-    firstname: {
-        type: String,
-        required: true
-    },
-    lastname: {
-        type: String,
-        required: true
-    },
     username: {
         type: String,
         required: true,
@@ -42,7 +34,6 @@ const userSchema = new mongoose.Schema({
         unique: true,
         validate: {
             validator: function (value) {
-
                 // http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
                 let pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 return pattern.test(value);
@@ -59,8 +50,7 @@ const userSchema = new mongoose.Schema({
         default: '58446e0a2374e32570d0fb06'
     },
     roles: [String],
-    isDeleted: Boolean,
-    isBlocked: Boolean
+    isDeleted: Boolean
 });
 
 userSchema.virtual('fullname').get(function () {

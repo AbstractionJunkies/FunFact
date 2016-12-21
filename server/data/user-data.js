@@ -41,8 +41,6 @@ module.exports = (models) => {
         },
         createUser(username, passHash, email, salt) {
             let user = new User({
-                firstname: ' ',
-                lastname: ' ',
                 username: username,
                 passHash: passHash,
                 email: email,
