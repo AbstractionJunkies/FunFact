@@ -20,7 +20,7 @@ module.exports = (config, app) => {
         saveUninitialized: false
     }));
 
-    // require('./passport')(app);
+    require('./passport')(app);
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
