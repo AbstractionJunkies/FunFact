@@ -3,7 +3,8 @@
 module.exports = function () {
     return {
         getTest(req, res) {
-            res.json({ 'pesho': 'tragvai' });
+            console.log('ooo');
+            res.json({ 'pesho': 'tragvai' }); 
         }
     };
 };

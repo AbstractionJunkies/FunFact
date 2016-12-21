@@ -6,12 +6,13 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng build && node ./server/index.js",
+    "start": "concurrently --kill-others \"ng serve --proxy-config proxy.conf.json\" \"npm run _server:run\"",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test --watch=false",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
     "build": "ng build --prod --output-path=dist/client",
+    "_server:run": "node ./server/index.js",
     "postinstall": "npm run build"
   },
   "author": "Abstraction Junkies",

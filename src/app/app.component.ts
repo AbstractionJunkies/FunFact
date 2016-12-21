@@ -39,8 +39,6 @@ export class AppComponent implements OnInit {
       })
       .subscribe(data => {
         this.title = data;
-        console.log(JSON.parse(data).are);
-        console.log("tuk");
       }
       );
 
