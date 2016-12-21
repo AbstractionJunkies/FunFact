@@ -3,7 +3,7 @@
 module.exports = function () {
     return {
         getHome(req, res) {
-            res.sendFile('index.html');
+            res.send('hello');
         }
     };
 };
