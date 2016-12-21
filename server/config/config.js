@@ -1,12 +1,12 @@
 const path = require('path');
 
-let rootPath = path.normalize(path.join(__dirname, '/../../'));
+const rootPath = path.normalize(path.join(__dirname, '/../../'));
 const PORT = process.env.PORT || 1337;
-// 'mongodb://admin:djagascript1234@ds161487.mlab.com:61487/djagascript'
+
 module.exports = {
     development: {
         rootPath: rootPath,
-        connectionString: 'mongodb://admin:djagascript1234@ds161487.mlab.com:61487/djagascript',
+        connectionString: 'Kiko? kak e linka :D',
         port: PORT
     },
     production: {

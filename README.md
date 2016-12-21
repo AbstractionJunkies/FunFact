@@ -1,60 +1,82 @@
-<img width="150" src="https://i.cloudup.com/zfY6lL7eFa-3000x3000.png" />
-<img width="50" src="https://angular.io/resources/images/logos/angular2/angular.svg" />
+# Course Project
+_Single-page Applications with Angular 2_
 
-## Angular2 Express Starter ( Advanced )
+This document describes the **course project assignment** for the [Single-page Applications with Angular 2](telerikacademy.com/courses/courses/Details/391) at Telerik Academy.
 
-- Angular 2 ( 2.x )
-- ExpressJS ( 4.x - with compression )
-- Webpack ( angular-cli )
+## Project Description
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Design and implement a **Single-page application** using [Angular 2](https://angular.io/)
 
-## Concepts
+It can be a discussion forum, blog system, e-commerce site, online gaming site, social network, or any other web application by your choice.
 
-- Redux ( NgRx/Store - with server calls)
-- Smart & dumb components
-- Advanced routing ( lazy loading, router outlets...)
+The application should have a:
 
-## Support
+- **public part** (accessible without authentication)
+- **private part** (available for registered users)
 
-If you’d like to support me developing this project you’re able to do so by donating on PayPal or if you have any special needs/ feature requests don’t hesitate to send me an email.
+### Public Part
 
-[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/ngsemantic)
+The **public part** of your projects should be **visible without authentication**.
+This public part could be the application start page, application statistics, the user login and user registration forms, as well as the public data of the users, e.g. the blog posts in a blog system, the public offers in a bid system, the products in an e-commerce system, etc.
 
+### Private Part (Registered users area)
 
-## Install / Development
+**Registered users** should have personal area in the web application accessible after **successful login**.
+This area could hold for example the user's profiles management functionality, the user's offers in a bid system, the user's posts in a blog system, the user's photos in a photo sharing system, the user's contacts in a social network, etc.
 
-```bash
-git clone https://github.com/vladotesanovic/angular2-express-starter
-cd angular2-express-starter
+## Technical Requirements
 
-# Install dependencies
-npm install
+Your Web application should use the following technologies, frameworks and development techniques:
 
-# start server
-npm run start
+- At least **8 different public dynamic web pages**
+- At least **7 different private (authenticated) dynamic web pages**
+- At least **10 different** partial components
+  - Partial, as not a whole page
+- Responsive UI with good UX
+- Most of the data should be loaded from a web server
+  - You can use Firebase, parse.com, Telerik Back-end Services, or any other
+  - You can use your own server written on Node.js, ASP.NET, or any other framework
+- Load all data using services
+- Use animations
+- Create at least **3 different pipes**
+- Create at least **3 different directives**
+- Setup and use tslint
+- Use **TypeScript**
+- Use the **best practices** for software development and Object-oriented design
+- Use Dependency Injection
 
-# Client url: http://localhost:4200
-# Application ( epxress ) API: http://localhost:4300
-```
+##  General Requirements
 
-## Build / Production
+- Use Git
+  - Github, Gitlab, Bitbucket, or other
+- Brief **documentation** of the project and the project architecture
+  - As `README.md` file at the root of the github repository
 
-```bash
+### Deliverables
 
-npm run build
+- Record a short video showcasing your application
+  - ~1-2 minutes, just show the interesting features
+  - Do not record register/login functionality, this is not interesting...
+- Upload your application in the cloud
+  - MS Azure, HerokuCloud, Amazon, all are fine
+- Register your application at [Our Showcase System](http://best.telerikacademy.com)
+  - Link to the live application
+  - Link to the video
+  - Link to the github repository
 
-## Deploy dist folder to app server
+### Public Project Defense
 
-Structure of dist folder:
+Each team will have to make a **public defense** of its work in front of a trainer (for about 30 minutes), in which each of the team members will answer to the trainer's questions individually.
 
-/dist/server <-- expressjs
-/dist/client <-- angular2
+The public defense includes:
 
-```
+- Live **demonstration** of the developed web application (prepare sample data).
+- Explain application structure and its back-end and front-end **source code**
+- Show the **commit logs** in the source control repository to prove a contribution from all team members.
+- May include a simple task for each team member
+  - The task must be implemented immediately
 
-## Note
+### Give Feedback about Your Teammates
 
-All html and css are from: http://www.w3schools.com/howto/
-
-
+You will be invited to **provide feedback** about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc.
+The feedback is important part of the project evaluation so **take it seriously** and be honest.
