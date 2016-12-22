@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FactsModule } from './components/facts/facts.module';
+import { AuthenticationModule } from './authentication/authentication.module'
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
@@ -11,12 +12,14 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { AppComponent } from './app.component';
 import { FactUploadComponent } from './components/facts/fact-upload.component';
 import { FactsListComponent } from './components/facts/fact-list.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FactUploadComponent,
-    FactsListComponent
+    FactsListComponent,
+    AuthenticationComponent
   ],
   imports: [
     ImageUploadModule,
@@ -25,7 +28,8 @@ import { FactsListComponent } from './components/facts/fact-list.component';
     HttpModule,
     FactsModule,
     Ng2UploaderModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [
