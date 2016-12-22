@@ -1,0 +1,7 @@
+<input 
+ *ngIf="!isUploaded" type="file" 
+ ngFileSelect [options]="options" 
+ (onUpload)="handleUpload($event)" 
+ (beforeUpload)="beforeUpload($event)">
+
+<div *ngIf="isUploaded" id="uploaded">Image uploaded!</div>

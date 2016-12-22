@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
    <h1>Homeeeeeeeeee</h1>
   `,
 })
-export class FactsListComponent {
-  
-}
+export class FactsListComponent { }
