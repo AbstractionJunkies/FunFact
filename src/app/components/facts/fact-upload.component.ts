@@ -1,34 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   templateUrl: './fact-upload.template.html',
   styleUrls: ['./fact-upload.styles.css']
 })
-export class FactUploadComponent {
+export class FactUploadComponent implements OnInit {
 
-  private isUploaded: boolean = false;
-  private hasBaseDropZoneOver: boolean = false;
-  private options: Object = {
+  private username: string = 'Pesho'; //TO DO - Tuka trea slojime po nekuv na4in username-a na lognatiq user
+  private options: any = {
     url: 'http://localhost:1337/facts/upload',
-    data: { user: 'Peshooooooooooooooooooooooooooooooooooooooooooooooooooooooooo' }
+    data: {
+      username: this.username,
+      title: '',
+      category: ''
+    },
+    autoUpload: false
   };
-  private sizeLimit = 2000000;
 
-  handleUpload(data): void {
-    if (data && data.response) {
-      data = JSON.parse(data.response);
-      this.isUploaded = data.isUploaded;
+  private events: EventEmitter<any> = new EventEmitter();
+
+  constructor() { }
+
+  startUpload(title, category, file) {
+    this.options.data.title = title;
+    this.options.data.category = category;
+
+    if (title === '' || category === 'select' || file === '') {
+      return;
     }
+
+    this.events.emit('startUpload');
   }
 
-  fileOverBase(e: any): void {
-    this.hasBaseDropZoneOver = e;
-  }
+  ngOnInit() {
 
-  beforeUpload(uploadingFile): void {
-    if (uploadingFile.size > this.sizeLimit) {
-      uploadingFile.setAbort();
-      alert('File is too large');
-    }
   }
 }

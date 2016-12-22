@@ -8,7 +8,9 @@ import { FactsModule } from './components/facts/facts.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
 import { Ng2UploaderModule } from 'ng2-uploader';
+
 import { AppComponent } from './app.component';
+import { FactComponent } from './components/facts/fact.component';
 import { FactUploadComponent } from './components/facts/fact-upload.component';
 import { FactsListComponent } from './components/facts/fact-list.component';
 
@@ -16,7 +18,8 @@ import { FactsListComponent } from './components/facts/fact-list.component';
   declarations: [
     AppComponent,
     FactUploadComponent,
-    FactsListComponent
+    FactsListComponent,
+    FactComponent
   ],
   imports: [
     ImageUploadModule,
