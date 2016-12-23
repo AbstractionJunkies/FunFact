@@ -1,36 +1,36 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <div class="container-fluid">
-  <form #registrationForm="ngForm" class="register-form" (ngSubmit)="register(); registrationForm.reset()">
+  <form [formGroup] ="userToRegister" #registrationForm="ngForm" class="register-form" (ngSubmit)="register(); registrationForm.reset()">
     <div class="row">
       <div class="col-md-4 col-sm-4 col-lg-4">
         <label for="username">Name</label>
-        <input name="username" class="form-control" type="text" [(ngModel)]="userToRegister.username">
+        <input name="username" class="form-control" type="text" formControlName="username">
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 col-sm-4 col-lg-4">
-        <label for="email">Email</label>
-        <input name="email" class="form-control" type="email" [(ngModel)]="userToRegister.email">
+    <div class="row ">
+      <div class="col-md-4 col-sm-4 col-lg-4 ">
+        <label for="email ">Email</label>
+        <input name="email " class="form-control " type="email " formControlName="email">
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 col-sm-4 col-lg-4">
-        <label for="password">Password</label>
-        <input name="password" class="form-control" type="password" [(ngModel)]="userToRegister.password">
+    <div class="row ">
+      <div class="col-md-4 col-sm-4 col-lg-4 ">
+        <label for="password ">Password</label>
+        <input name="password " class="form-control " type="password" formControlName="password">
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 col-sm-4 col-lg-4">
-        <label for="confirmed-password">Repeat password</label>
-        <input name="confirmedPassword" class="form-control" type="password" [(ngModel)]="userToRegister.confirmedPassword">
+    <div class="row ">
+      <div class="col-md-4 col-sm-4 col-lg-4 ">
+        <label for="confirmed-password ">Repeat password</label>
+        <input name="confirmedPassword " class="form-control " type="password" formControlName="confirmedPassword">
       </div>
     </div>
     <hr>
-    <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-        <button class="btn btn-default regbutton">Register</button>
+    <div class="row ">
+      <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 ">
+        <button class="btn btn-default regbutton ">Register</button>
       </div>
     </div>
   </form>
-  <simple-notifications [options]="options"></simple-notifications>
+  <simple-notifications [options]="options "></simple-notifications>
 </div>

@@ -12,10 +12,10 @@ export class AuthenticationService {
     }
 
     register(userToRegister: Object): Observable<any> {
-        // let newUser = JSON.stringify(userToRegister);
-        // console.log(newUser);
         return this._http.post(RegisterUrl, userToRegister)
-            .map((res: Response) => res.json());
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
     }
 
     login(userToRegister: Object): Observable<any> {

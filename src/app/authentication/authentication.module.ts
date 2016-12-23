@@ -18,6 +18,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
+    ReactiveFormsModule,
     SimpleNotificationsModule,
   ],
   declarations: [
