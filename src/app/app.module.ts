@@ -12,6 +12,7 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { AppComponent } from './app.component';
 import { FactUploadComponent } from './components/facts/fact-upload.component';
 import { FactsListComponent } from './components/facts/fact-list.component';
+import {FactComponent } from './components/facts/fact.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { AlertComponent } from './alert/alert.component';
 
@@ -21,7 +22,11 @@ import { AlertComponent } from './alert/alert.component';
     FactUploadComponent,
     FactsListComponent,
     AuthenticationComponent,
+<<<<<<< HEAD
     AlertComponent
+=======
+    FactComponent
+>>>>>>> 80aa6a200b37c684cf59a3b547fdbcf58d9839a3
   ],
   imports: [
     ImageUploadModule,

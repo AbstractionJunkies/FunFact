@@ -1,7 +1,16 @@
+<input type="text" #title>
+<select #category >
+  <option value="select">Please select</option>
+  <option value="fun">Fun</option>
+  <option value="dev">Dev</option>
+</select> 
 <input 
- *ngIf="!isUploaded" type="file" 
- ngFileSelect [options]="options" 
- (onUpload)="handleUpload($event)" 
- (beforeUpload)="beforeUpload($event)">
+    type="file" 
+    #file
+    [events]="events"
+    ngFileSelect [options]="options" >
+<input type="button" value="Upload" (click)="startUpload(title.value,category.value,file.value)" />
 
-<div *ngIf="isUploaded" id="uploaded">Image uploaded!</div>
+
+<!--(onUpload)="handleUpload($event, title.value,category.value)" 
+    (beforeUpload)="beforeUpload($event,title.value,category.value)"-->
