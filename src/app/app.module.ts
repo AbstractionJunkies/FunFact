@@ -13,13 +13,15 @@ import { AppComponent } from './app.component';
 import { FactUploadComponent } from './components/facts/fact-upload.component';
 import { FactsListComponent } from './components/facts/fact-list.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FactUploadComponent,
     FactsListComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    AlertComponent
   ],
   imports: [
     ImageUploadModule,
