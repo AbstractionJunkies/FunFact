@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeComponentService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  title: string;
+  constructor(private _homeService: HomeComponentService) { }
 
   ngOnInit() {
+    this._homeService.getHome()
+      .subscribe((r: any) => {
+        this.title = JSON.stringify(r);
+      });
   }
-
 }

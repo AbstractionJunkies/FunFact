@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { AlertComponent } from './alert/alert.component';
 import { HomeComponent } from './home/home.component';
+import { HomeComponentService } from './home/home.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,7 +32,7 @@ const routes: Routes = [
     FactsModule,
     AuthenticationModule
   ],
-  providers: [],
+  providers: [HomeComponentService],
   bootstrap: [
     AppComponent
   ]
