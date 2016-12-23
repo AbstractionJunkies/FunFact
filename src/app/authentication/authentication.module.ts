@@ -16,7 +16,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes, { useHash: true }),
+    RouterModule.forChild(routes),
     FormsModule
   ],
   declarations: [
