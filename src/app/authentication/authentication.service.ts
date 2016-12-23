@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core'
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 
 const RegisterUrl: string = 'http://localhost:1337/api/auth/register';
 const LoginUrl: string = 'http://localhost:1337/api/auth/login';
+const GetLoggedUserUrl: string = 'http://localhost:1337/api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
 
 @Injectable()
@@ -28,7 +29,7 @@ export class AuthenticationService {
             .map((res: Response) => {
                 let body = res.json();
                 let token = body.token;
-                console.log(body.token);
+                
                 localStorage.setItem(AuthToken, token);
                 return { status: res.status, body: body }
             });
@@ -40,5 +41,22 @@ export class AuthenticationService {
 
     isLoggedIn(): boolean {
         return this.loggedIn;
+    }
+
+    getLoggedUser(): Observable<any> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        this.createAuthorizationHeader(headers);
+
+        return this._http.get(GetLoggedUserUrl, options)
+            .map((res: Response) => {
+                let body = res.json();
+                return { status: res.status, body: body }
+            })
+    }
+
+    createAuthorizationHeader(headers: Headers) {
+        let authToken = localStorage.getItem(AuthToken);
+        headers.append('Authorization', authToken);
     }
 }

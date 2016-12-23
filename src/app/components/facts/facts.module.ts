@@ -4,6 +4,7 @@ import { FactsListComponent } from './fact-list.component';
 import { FactUploadComponent } from './fact-upload.component';
 import { FactService } from './fact.service';
 import { FactDetailComponent } from './fact-detail.component';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    providers: [FactService],
+    providers: [FactService, AuthenticationService],
     imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule]
 })
