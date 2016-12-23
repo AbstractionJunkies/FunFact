@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { User } from '../models/User';
 
@@ -24,10 +24,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.userToRegister = this.fb.group({
-      'username': '',
-      'email': '',
-      'password': '',
-      'confirmedPassword': ''
+      'username': ['', Validators.compose([Validators.required, Validators.minLength(5)])],
+      'email': ['', Validators.required],
+      'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+      'confirmedPassword': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
     });
 
     this.options = { timeOut: 2500, pauseOnHover: true, showProgressBar: false, animate: 'scale', position: ['right', 'top'] };

@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 
 const RegisterUrl = 'http://localhost:1337/api/auth/register';
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthenticationService {

@@ -1,34 +1,38 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <div class="container-fluid">
-  <form [formGroup] ="userToRegister" #registrationForm="ngForm" class="register-form" (ngSubmit)="register(); registrationForm.reset()">
+  <form [formGroup]="userToRegister" #registrationForm="ngForm" class="register-form" (ngSubmit)="register(); registrationForm.reset()">
     <div class="row">
-      <div class="col-md-4 col-sm-4 col-lg-4">
+      <div class="col-md-4 col-sm-4 col-lg-4" [ngClass]="{'has-error':!userToRegister.controls['username'].valid}">
         <label for="username">Name</label>
         <input name="username" class="form-control" type="text" formControlName="username">
+        <span class="text-danger" *ngIf="!userToRegister.controls['username'].valid && userToRegister.controls['username'].touched">Username must be between 5 and 15 symbols.</span>
       </div>
     </div>
     <div class="row ">
-      <div class="col-md-4 col-sm-4 col-lg-4 ">
+      <div class="col-md-4 col-sm-4 col-lg-4" [ngClass]="{'has-error':!userToRegister.controls['email'].valid}">
         <label for="email ">Email</label>
         <input name="email " class="form-control " type="email " formControlName="email">
+        <span class="text-danger" *ngIf="!userToRegister.controls['email'].valid && userToRegister.controls['email'].touched">Please eneter valid email</span>
       </div>
     </div>
     <div class="row ">
-      <div class="col-md-4 col-sm-4 col-lg-4 ">
+      <div class="col-md-4 col-sm-4 col-lg-4 " [ngClass]="{'has-error':!userToRegister.controls['password'].valid}">
         <label for="password ">Password</label>
         <input name="password " class="form-control " type="password" formControlName="password">
+        <span class="text-danger" *ngIf="!userToRegister.controls['password'].valid && userToRegister.controls['password'].touched">Password must be at least 4 symbols</span>
       </div>
     </div>
     <div class="row ">
-      <div class="col-md-4 col-sm-4 col-lg-4 ">
+      <div class="col-md-4 col-sm-4 col-lg-4 " [ngClass]="{'has-error':!userToRegister.controls['confirmedPassword'].valid}">
         <label for="confirmed-password ">Repeat password</label>
         <input name="confirmedPassword " class="form-control " type="password" formControlName="confirmedPassword">
+        <span class="text-danger" *ngIf="!userToRegister.controls['confirmedPassword'].valid && userToRegister.controls['confirmedPassword'].touched">Passwords do not match</span>
       </div>
     </div>
     <hr>
     <div class="row ">
       <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 ">
-        <button class="btn btn-default regbutton ">Register</button>
+        <button class="btn btn-default regbutton" [disabled]="!userToRegister.valid">Register</button>
       </div>
     </div>
   </form>
