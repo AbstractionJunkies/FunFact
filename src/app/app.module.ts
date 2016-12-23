@@ -12,8 +12,9 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { AppComponent } from './app.component';
 import { FactUploadComponent } from './components/facts/fact-upload.component';
 import { FactsListComponent } from './components/facts/fact-list.component';
-import {FactComponent } from './components/facts/fact.component';
+import { FactComponent } from './components/facts/fact.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { FactDetailComponent } from './components/facts/fact-detail.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     FactUploadComponent,
     FactsListComponent,
     AuthenticationComponent,
-    FactComponent
+    FactComponent,
+    FactDetailComponent
   ],
   imports: [
     ImageUploadModule,

@@ -1,15 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FactService } from './fact.service';
-import 'rxjs/add/operator/switchMap';
 
+import 'rxjs/add/operator/switchMap';
 @Component({
   templateUrl: './fact-list.template.html'
 })
 export class FactsListComponent implements OnInit {
   private facts;
 
-  constructor(private factService: FactService) {
-
+  constructor(
+    private factService: FactService) {
   }
 
   ngOnInit() {
@@ -19,5 +19,4 @@ export class FactsListComponent implements OnInit {
         this.facts = r;
       });
   }
-
 }
