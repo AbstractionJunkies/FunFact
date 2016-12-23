@@ -11,8 +11,6 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: FactsListComponent },
     { path: 'upload', component: FactUploadComponent },
     { path: 'all', component: FactsListComponent }
 ];
@@ -25,7 +23,7 @@ const routes: Routes = [
     ],
     providers: [FactService],
     imports: [
-        RouterModule.forRoot(routes, { useHash: true }),
+        RouterModule.forChild(routes),
         ImageUploadModule,
         FormsModule,
         HttpModule,
