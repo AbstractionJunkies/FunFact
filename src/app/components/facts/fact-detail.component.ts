@@ -15,12 +15,24 @@ import 'rxjs/add/operator/switchMap';
         <h4>Uploader: {{fact.uploader}}</h4>
         <div>Category: {{fact.category}}</div>
         <div (click)="goBack()">BACK</div>
+        <div> COMMENTS: </div>
+        <ul>
+            <li *ngFor="let comment of factComments">
+              <p>
+                {{comment.username}}
+              </p>
+              <p>
+               {{comment.comment}}
+              </p>
+            </li>
+        </ul>
         <fact-comment-selector factId={{fact._id}}></fact-comment-selector>
   `
 })
 
 export class FactDetailComponent implements OnInit {
     @Input() public fact: Fact;
+    public factComments;
 
     constructor(
         private factService: FactService,
@@ -29,6 +41,10 @@ export class FactDetailComponent implements OnInit {
     ) {
 
         this.fact = <Fact>{};
+        this.factComments = [{
+            username: '',
+            content: ''
+        }];
     }
 
     ngOnInit(): void {
@@ -37,6 +53,9 @@ export class FactDetailComponent implements OnInit {
             .map(r => r.json())
             .subscribe((r: any) => {
                 this.fact = r;
+                this.factComments = this.fact.comments;
+                console.log(this.factComments);
+                
             });
     }
 

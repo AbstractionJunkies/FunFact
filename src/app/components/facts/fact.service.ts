@@ -20,4 +20,12 @@ export class FactService {
     getFactComments(factId) {
         return this.http.get(`${this.host}facts/fact/${factId}/comments`);
     }
+
+    addComment(comment, factId) {
+        let body = {
+            comment
+        };
+
+        return this.http.post(`${this.host}facts/fact/${factId}/comments`, body);
+    }
 }
