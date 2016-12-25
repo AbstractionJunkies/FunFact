@@ -16,6 +16,11 @@ import { FactComponent } from './components/facts/fact.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { FactDetailComponent } from './components/facts/fact-detail.component';
 
+
+
+import {CommentComponent } from './components/facts/comment.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,11 @@ import { FactDetailComponent } from './components/facts/fact-detail.component';
     FactsListComponent,
     AuthenticationComponent,
     FactComponent,
-    FactDetailComponent
+    FactDetailComponent,
+
+
+
+    CommentComponent
   ],
   imports: [
     ImageUploadModule,

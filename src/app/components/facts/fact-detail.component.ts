@@ -14,11 +14,13 @@ import 'rxjs/add/operator/switchMap';
         <img [src]='fact.img' [style.height.px]='100'>
         <h4>Uploader: {{fact.uploader}}</h4>
         <div>Category: {{fact.category}}</div>
+        <div (click)="goBack()">BACK</div>
+        <fact-comment-selector factId={{fact._id}}></fact-comment-selector>
   `
 })
 
 export class FactDetailComponent implements OnInit {
-    public fact: Fact;
+    @Input() public fact: Fact;
 
     constructor(
         private factService: FactService,
@@ -30,15 +32,12 @@ export class FactDetailComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
         this.route.params
             .switchMap((params: Params) => this.factService.getFactById(params['id']))
             .map(r => r.json())
             .subscribe((r: any) => {
                 this.fact = r;
             });
-
-        console.log(this.fact);
     }
 
     goBack(): void {

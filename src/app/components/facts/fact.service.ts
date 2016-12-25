@@ -16,4 +16,8 @@ export class FactService {
     getFactById(id) {
         return this.http.get(`${this.host}facts/fact/${id}`);
     }
+
+    getFactComments(factId) {
+        return this.http.get(`${this.host}facts/fact/${factId}/comments`);
+    }
 }
