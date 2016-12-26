@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     templateUrl: './fact-detail.template.html',
-    styleUrls: ['./fact-detail.css']
+    styleUrls:['./fact-detail.css']
 })
 
 export class FactDetailComponent implements OnInit {
@@ -18,6 +18,7 @@ export class FactDetailComponent implements OnInit {
     public factComments;
     private factID;
 
+    private ratingArr: [number] = [1, 2, 3, 4, 5];
     constructor(
         private factService: FactService,
         private route: ActivatedRoute,
@@ -41,7 +42,9 @@ export class FactDetailComponent implements OnInit {
                 //this.factComments = this.fact.comments;
 
                 // for testing only
-                this.fact.rating = 3.4;
+                console.log(r);
+                this.fact.rating = r.rating;
+                console.log(this.fact.rating);
 
             });
 
@@ -65,17 +68,15 @@ export class FactDetailComponent implements OnInit {
         console.log(message);
     }
 
-    addToFavorites(username, fact) {
-        let factToAdd = {
-            title: fact.title,
-            category: fact.category,
-            img: fact.img,
-            rating: fact.rating
-        };
-        console.log(fact);
-        
-         this.factService.addToFavorites('Pesho', factToAdd).subscribe();
-
+    rateFact(factId, value): void {
+        this.factService.rateFact(factId, value)
+            .subscribe((res: any) => {
+                console.log(res.body.rate);
+                this.fact.rating = +res.body.rate;
+            },
+            (err: any) => {
+                console.log(err);
+            });
     }
 }
 
