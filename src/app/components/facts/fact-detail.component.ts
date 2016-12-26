@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FactService } from './fact.service';
+import { AuthenticationService } from '../../authentication/authentication.service';
 import { Fact } from './fact';
 
 import 'rxjs/add/operator/switchMap';
@@ -19,10 +20,12 @@ export class FactDetailComponent implements OnInit {
 
     private ratedCount: number;
     private ratingArr: [number] = [1, 2, 3, 4, 5];
+
     constructor(
         private factService: FactService,
         private route: ActivatedRoute,
-        private location: Location
+        private location: Location,
+        private authService: AuthenticationService
     ) {
 
         this.fact = <Fact>{};
@@ -38,9 +41,7 @@ export class FactDetailComponent implements OnInit {
             })
             .map(r => r.json())
             .subscribe((r: any) => {
-                console.log(r);
                 this.fact = r;
-                console.log(r);
                 this.fact.rating = r.rating;
                 this.ratedCount = r.usersRated.length;
             });
@@ -83,8 +84,12 @@ export class FactDetailComponent implements OnInit {
             img: fact.img,
             rating: fact.rating
         };
+        this.authService.getLoggedUser()
+            .subscribe(result => {
+                let username = result.body.username;
 
-        this.factService.addToFavorites('Pesho', factToAdd).subscribe();
+                this.factService.addToFavorites(username, factToAdd).subscribe();
+            });
     }
 }
 

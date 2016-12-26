@@ -4,16 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FactsModule } from './components/facts/facts.module';
-import { AuthenticationModule } from './authentication/authentication.module'
+import { UserModule } from './components/user/user.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-import { FactDetailComponent } from './components/facts/fact-detail.component';
-
-import { SearchPipe } from './pipes/searchPipe';
-
-import { CommentComponent } from './components/facts/comment.component';
 
 
 @NgModule({
@@ -26,7 +22,8 @@ import { CommentComponent } from './components/facts/comment.component';
     FormsModule,
     HttpModule,
     FactsModule,
-    AuthenticationModule
+    AuthenticationModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [
