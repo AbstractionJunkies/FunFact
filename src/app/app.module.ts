@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { FactDetailComponent } from './components/facts/fact-detail.component';
 
-
+import { SearchPipe } from './pipes/searchPipe';
 
 import { CommentComponent } from './components/facts/comment.component';
 

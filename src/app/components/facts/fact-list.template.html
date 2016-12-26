@@ -1,4 +1,16 @@
+<div id="search">
+  <input type='text' [(ngModel)]='searchPattern'/>
+  <select [(ngModel)]='sortPattern'>
+    <option value="title">Title</option>
+    <option value="uploader">Uploader</option>
+    <option value="category">Category</option>
+    <option value="rating">Rating</option>
+  </select>
+  <input type="radio" [(ngModel)]='orderPattern' name="order" value="Ascending">Ascending
+  <input type="radio" [(ngModel)]='orderPattern' name="order" value="Descending">Descending
+</div>
 <ul class="facts-list">
-    <li class="fact-single" fact-selector *ngFor="let fact of facts" [fact]="fact">
-    </li>
+  <li fact-selector *ngFor="let fact of (facts | search : searchPattern | sort:[sortPattern,orderPattern])"
+      [fact]="fact">
+  </li>
 </ul>

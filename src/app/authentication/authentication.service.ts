@@ -29,7 +29,7 @@ export class AuthenticationService {
             .map((res: Response) => {
                 let body = res.json();
                 let token = body.token;
-                
+
                 localStorage.setItem(AuthToken, token);
                 return { status: res.status, body: body }
             });
@@ -44,9 +44,8 @@ export class AuthenticationService {
     }
 
     getLoggedUser(): Observable<any> {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let headers = this.createAuthorizationHeader();
         let options = new RequestOptions({ headers: headers });
-        this.createAuthorizationHeader(headers);
 
         return this._http.get(GetLoggedUserUrl, options)
             .map((res: Response) => {
@@ -55,8 +54,12 @@ export class AuthenticationService {
             })
     }
 
-    createAuthorizationHeader(headers: Headers) {
+    createAuthorizationHeader(): Headers {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
         let authToken = localStorage.getItem(AuthToken);
+        console.log(authToken);
         headers.append('Authorization', authToken);
+
+        return headers;
     }
 }
