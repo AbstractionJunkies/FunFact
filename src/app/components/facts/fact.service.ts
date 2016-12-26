@@ -45,14 +45,10 @@ export class FactService {
         }
         console.log(factId, value);
         let headers = this.auth.createAuthorizationHeader();
-        let authToken = localStorage.getItem('auth_token');
 
         let body = {
             vote: value
         };
-
-        let options = new RequestOptions({ headers: headers });
-        console.log(headers);
 
         return this.http.put(`${this.host}facts/fact/${factId}`, JSON.stringify(body), { headers: headers })
             .map((res: Response) => {

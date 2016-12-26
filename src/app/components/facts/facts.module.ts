@@ -13,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
 import { Ng2UploaderModule } from 'ng2-uploader';
 
-
 import { SearchPipe } from '../../pipes/searchPipe';
 import { SortPipe } from '../../pipes/sortPipe';
 

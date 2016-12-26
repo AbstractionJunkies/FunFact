@@ -12,7 +12,8 @@
 <div>
     <app-rating [rating]='fact.rating' (ratingClicked)='onRatingClicked($event)'>
     </app-rating>
-    <span>{{fact.rating}}</span>
+    <span>{{fact.rating | number : '1.2-2'}}</span>
+    <span>Total users voted: {{ratedCount}} </span>
     <select #factRating>
         <option *ngFor="let rate of ratingArr" [ngValue]="rate">{{rate}}</option>
     </select>
@@ -28,7 +29,7 @@
                 <span class="glyphicon glyphicon-user"> {{comment.username}}</span>
             </p>
             <div>
-                    {{comment.comment}}
+                {{comment.comment}}
             </div>
         </div>
     </li>

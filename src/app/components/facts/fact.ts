@@ -6,4 +6,5 @@ export interface Fact {
     category: string;
     comments?: [string];
     rating?: number;
+    usersRated: [{}];
 }
