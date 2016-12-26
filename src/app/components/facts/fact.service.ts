@@ -39,4 +39,12 @@ export class FactService {
     getComment() {
         return this.commentSubject.asObservable();
     }
+
+    addToFavorites(username, fact) {
+        let body = {
+            fact
+        };
+
+        return this.http.post(`${this.host}facts/user/${username}/favorites`, body);
+    }
 }
