@@ -8,30 +8,12 @@ import { Fact } from './fact';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    templateUrl: `
-        <div>Fact ID : {{fact._id}}</div>
-        <h1>TITLE: {{fact.title}}</h1>
-        <img [src]='fact.img' [style.height.px]='100'>
-        <h4>Uploader: {{fact.uploader}}</h4>
-        <div>Category: {{fact.category}}</div>
-        <div (click)="goBack()">BACK</div>
-        <div> COMMENTS: </div>
-        <ul>
-            <li *ngFor="let comment of factComments">
-              <p>
-                {{comment.username}}
-              </p>
-              <p>
-               {{comment.comment}}
-              </p>
-            </li>
-        </ul>
-        <fact-comment-selector factId={{fact._id}}></fact-comment-selector>
-  `
+    templateUrl:'./fact-detail.template.html'
 })
 
 export class FactDetailComponent implements OnInit {
     @Input() public fact: Fact;
+
     public factComments;
 
     constructor(
@@ -55,12 +37,16 @@ export class FactDetailComponent implements OnInit {
                 this.fact = r;
                 this.factComments = this.fact.comments;
                 console.log(this.factComments);
-                
+
             });
     }
 
     goBack(): void {
         this.location.back();
+    }
+
+    onRatingClicked(message: string): void {
+        console.log(message);
     }
 }
 
