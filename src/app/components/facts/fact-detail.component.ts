@@ -9,7 +9,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     templateUrl: './fact-detail.template.html',
-    styleUrls:['./fact-detail.css']
+    styleUrls: ['./fact-detail.css']
 })
 
 export class FactDetailComponent implements OnInit {
@@ -77,6 +77,17 @@ export class FactDetailComponent implements OnInit {
             (err: any) => {
                 console.log(err);
             });
+    }
+
+    addToFavorites(username, fact) {
+        let factToAdd = {
+            title: fact.title,
+            category: fact.category,
+            img: fact.img,
+            rating: fact.rating
+        };
+
+        this.factService.addToFavorites('Pesho', factToAdd).subscribe();
     }
 }
 
