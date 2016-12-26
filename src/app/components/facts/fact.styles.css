@@ -1,0 +1,22 @@
+.fact{
+  border:1px solid lightgray;
+  border-radius:10px;
+  margin:10px;
+  position: relative;
+  text-align: center;
+}
+.fact img{
+  width: 100%;
+}
+.fact h1{
+  color: dodgerblue;
+  text-align: left;
+}
+.fact h1:hover{
+  color: orangered;
+  text-decoration: underline;
+}
+.fact-info{
+  text-align: right;
+  margin: 10px;
+}

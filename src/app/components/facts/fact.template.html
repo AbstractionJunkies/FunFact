@@ -1,0 +1,11 @@
+<div class="fact">
+
+  <h1 class="clickable" (click)="goToDetail(id)">TITLE: {{title}}</h1>
+  <img class="fact-image-small" [src]='img' (error)='standby($event)'>
+  <div class="fact-info">
+    <span class="glyphicon glyphicon-user"></span><span> {{uploader}}</span>
+    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span><span> {{commentsCount}}</span>
+    <span class="glyphicon glyphicon-tag"></span><span> {{category}}</span>
+
+  </div>
+</div>

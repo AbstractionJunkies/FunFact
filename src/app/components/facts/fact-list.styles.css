@@ -1,0 +1,14 @@
+.facts-list{
+  text-align: center;
+  display: inline-block;
+  width: 500px;
+}
+.facts-list li{
+  width: 100%;
+}
+
+
+
+ul{
+  list-style-type: none;
+}

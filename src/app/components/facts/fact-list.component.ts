@@ -4,11 +4,7 @@ import { FactService } from './fact.service';
 import 'rxjs/add/operator/switchMap';
 @Component({
   templateUrl: './fact-list.template.html',
-  styles: [`
-    ul {
-      list-style-type: none;
-    }
-  `]
+  styleUrls: ['fact-list.styles.css']
 })
 export class FactsListComponent implements OnInit {
   private facts;
