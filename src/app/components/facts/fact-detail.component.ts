@@ -16,6 +16,7 @@ export class FactDetailComponent implements OnInit {
 
     public factComments;
 
+    private ratingArr: [number] = [1, 2, 3, 4, 5];
     constructor(
         private factService: FactService,
         private route: ActivatedRoute,
@@ -39,7 +40,9 @@ export class FactDetailComponent implements OnInit {
                 console.log(this.factComments);
 
                 // for testing only
-                this.fact.rating = 3.4;
+                console.log(r);
+                this.fact.rating = r.rating;
+                console.log(this.fact.rating);
 
             });
     }
@@ -50,6 +53,17 @@ export class FactDetailComponent implements OnInit {
 
     onRatingClicked(message: string): void {
         console.log(message);
+    }
+
+    rateFact(factId, value): void {
+        this.factService.rateFact(factId, value)
+            .subscribe((res: any) => {
+                console.log(res.body.rate);
+                this.fact.rating = +res.body.rate;
+            },
+            (err: any) => {
+                console.log(err);
+            });
     }
 }
 
