@@ -8,13 +8,15 @@ import { Fact } from './fact';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    templateUrl: './fact-detail.template.html'
+    templateUrl: './fact-detail.template.html',
+    styleUrls:['./fact-detail.css']
 })
 
 export class FactDetailComponent implements OnInit {
     @Input() public fact: Fact;
 
     public factComments;
+    private factID;
 
     constructor(
         private factService: FactService,
@@ -23,24 +25,35 @@ export class FactDetailComponent implements OnInit {
     ) {
 
         this.fact = <Fact>{};
-        this.factComments = [{
-            username: '',
-            content: ''
-        }];
+        this.factComments = [{}];
+        this.factID = 0;
     }
 
     ngOnInit(): void {
         this.route.params
-            .switchMap((params: Params) => this.factService.getFactById(params['id']))
+            .switchMap((params: Params) => {
+                this.factID = params['id'];
+                return this.factService.getFactById(this.factID);
+            })
             .map(r => r.json())
             .subscribe((r: any) => {
                 this.fact = r;
-                this.factComments = this.fact.comments;
-                console.log(this.factComments);
+                //this.factComments = this.fact.comments;
 
                 // for testing only
                 this.fact.rating = 3.4;
 
+            });
+
+        this.factService.getFactComments(this.factID)
+            .map(r => r.json())
+            .subscribe((result: any) => {
+                this.factComments = result;
+            });
+
+        this.factService.getComment()
+            .subscribe((comment) => {
+                this.factComments.push(comment);
             });
     }
 

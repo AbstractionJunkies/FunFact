@@ -39,7 +39,6 @@ export class FactUploadComponent implements OnInit {
       .subscribe(res => {
         let currentLoggedUser = res.body.username;
         this.username = currentLoggedUser;
-        console.log(this.username);
       });
   }
 }

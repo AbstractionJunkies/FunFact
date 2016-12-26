@@ -17,7 +17,6 @@ const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: FactsListComponent },
     { path: 'upload', component: FactUploadComponent },
-    { path: 'all', component: FactsListComponent },
     { path: 'facts/fact/:id', component: FactDetailComponent }
 ];
 
