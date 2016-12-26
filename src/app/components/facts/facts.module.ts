@@ -13,11 +13,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
 import { Ng2UploaderModule } from 'ng2-uploader';
 
+
+import { SearchPipe } from '../../pipes/searchPipe';
+import { SortPipe } from '../../pipes/sortPipe';
+
+
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: FactsListComponent },
     { path: 'upload', component: FactUploadComponent },
-    { path: 'all', component: FactsListComponent },
     { path: 'facts/fact/:id', component: FactDetailComponent }
 ];
 
@@ -27,7 +31,9 @@ const routes: Routes = [
         CommentComponent,
         FactDetailComponent,
         FactsListComponent,
-        FactUploadComponent
+        FactUploadComponent,
+        SearchPipe,
+        SortPipe
     ],
     providers: [
         FactService,

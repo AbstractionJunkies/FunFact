@@ -1,11 +1,23 @@
-<header>
-    <nav>
-        <a routerLink="/home" routerLinkActive="active">Home</a>
-        <a routerLink="/upload" routerLinkActive="upload">Upload</a>
-        <a routerLink="/all" routerLinkActive="all">All</a>
-        <a routerLink="/register" routerLinkActive="register">Register</a>
-        <a routerLink="/login" routerLinkActive="login">Login</a>
 
+<header>
+    <nav class="navbar navbar-default navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+            <li>
+                <a routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li>
+                <a routerLink="/upload" routerLinkActive="upload">Upload</a>
+            </li>
+            <li>
+                <a routerLink="/register" routerLinkActive="register">Register</a>
+            </li>
+            <li>
+                <a routerLink="/login" routerLinkActive="login">Login</a>
+            </li>
+        </ul>
     </nav>
-    <router-outlet></router-outlet>
+    <div id="content">
+        <router-outlet></router-outlet>
+    </div>
 </header>
+

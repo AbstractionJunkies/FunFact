@@ -1,0 +1,14 @@
+.fact{
+    width: 600px;
+}
+.fact-image-big{
+    width:600px;
+}
+ul{
+    list-style-type: none;
+}
+.comment{
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px;
+}

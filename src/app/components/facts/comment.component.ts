@@ -7,7 +7,7 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'fact-comment-selector',
   template: `
-    <textarea #area></textarea>
+    <textarea #area [(ngModel)]="commentValue"></textarea>
     <input type="button" (click)="save(area.value, factId)" value="save">
   `
 })
@@ -15,6 +15,7 @@ export class CommentComponent implements OnInit {
 
   @Input() public factId;
   private username: string;
+  private commentValue: string;
 
   constructor(
     private _authService: AuthenticationService,
@@ -22,6 +23,7 @@ export class CommentComponent implements OnInit {
   ) {
     this.factId = 0;
     this.username = '';
+    this.commentValue = '';
   }
 
   ngOnInit() {
@@ -29,7 +31,6 @@ export class CommentComponent implements OnInit {
       .subscribe(res => {
         let currentLoggedUser = res.body.username;
         this.username = currentLoggedUser;
-        console.log(this.username);
       });
   }
 
@@ -38,8 +39,13 @@ export class CommentComponent implements OnInit {
       comment,
       username: this.username
     };
-    console.log(comment, factId);
 
-    this.factService.addComment(commentToAdd, factId).subscribe();
+    this.factService.addComment(commentToAdd, factId).
+      map(r => r.json())
+      .subscribe((result) => {
+        this.factService.setComment(result);
+      });
+
+    this.commentValue = '';
   }
 }

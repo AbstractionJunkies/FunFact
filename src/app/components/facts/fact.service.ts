@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
+
 import { Http, RequestOptions, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class FactService {
 
     private host: string = 'http://localhost:1337/';
+    private commentSubject;
 
     constructor(private http: Http,
-        private auth: AuthenticationService) { }
+        private auth: AuthenticationService) {
+        this.commentSubject = new Subject();
+    }
+
 
     getAllFacts() {
         return this.http.get(`${this.host}facts/all`);
@@ -54,5 +60,13 @@ export class FactService {
                 console.log(body);
                 return { status: res.status, body: body }
             })
+    }
+
+    setComment(comment) {
+        this.commentSubject.next(comment);
+    }
+
+    getComment() {
+        return this.commentSubject.asObservable();
     }
 }
