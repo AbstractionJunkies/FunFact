@@ -8,7 +8,7 @@ import { Fact } from './fact';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    templateUrl:'./fact-detail.template.html'
+    templateUrl: './fact-detail.template.html'
 })
 
 export class FactDetailComponent implements OnInit {
@@ -37,6 +37,9 @@ export class FactDetailComponent implements OnInit {
                 this.fact = r;
                 this.factComments = this.fact.comments;
                 console.log(this.factComments);
+
+                // for testing only
+                this.fact.rating = 3.4;
 
             });
     }
