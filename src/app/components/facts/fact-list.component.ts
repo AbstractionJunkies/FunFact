@@ -19,10 +19,9 @@ export class FactsListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.factService.getInitialFacts()
-      .map(x => x.json())
-      .subscribe((r: any) => {
-        this.facts = r;
+    this.factService.getAllFacts(0)
+      .subscribe((res: any) => {
+        this.facts = res.body;
       });
 
     this._alreadyLoaded = [0];
@@ -32,7 +31,7 @@ export class FactsListComponent implements OnInit {
     let page = document.getElementsByClassName('fact').length;
     page = (page / 5) | 0;
     if (this._alreadyLoaded.indexOf(page) < 0) {
-      this.factService.loadMoreFacts(page)
+      this.factService.getAllFacts(page)
         .subscribe((res: any) => {
           console.log(res.body.length);
           console.log(res.body);
