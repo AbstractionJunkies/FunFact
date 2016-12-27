@@ -34,4 +34,5 @@
         </div>
     </li>
 </ul>
-<button (click)='loadMoreComments()'>Load more </button>
+<button *ngIf="!noMoreComments" (click)='loadMoreComments()'>Load More</button>
+<span *ngIf="noMoreComments"> no more comments</span>

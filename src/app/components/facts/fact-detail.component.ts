@@ -23,6 +23,7 @@ export class FactDetailComponent implements OnInit {
   private ratedCount: number;
   private ratingArr: [number] = [1, 2, 3, 4, 5];
   private commentPage: number;
+  private noMoreComments: boolean = false;
 
   constructor(private factService: FactService,
     private route: ActivatedRoute,
@@ -58,6 +59,7 @@ export class FactDetailComponent implements OnInit {
     this.factService.getComment()
       .subscribe((comment) => {
         this.factComments.push(comment);
+        this.factCommentsToDisplay.push(comment);
       });
 
 
@@ -103,6 +105,8 @@ export class FactDetailComponent implements OnInit {
     for (let comment of newComments) {
       this.factCommentsToDisplay.push(comment);
     }
+
+    this.noMoreComments = this.factComments.length === this.factCommentsToDisplay.length ? true : false;
   }
 
   getPagedComments(page: number) {
