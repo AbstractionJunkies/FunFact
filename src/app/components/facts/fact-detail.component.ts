@@ -1,10 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {Location} from '@angular/common';
-import {FactService} from './fact.service';
-import {AuthenticationService} from '../../authentication/authentication.service';
-import {Fact} from './fact';
-import {ShareButtonsModule} from 'ng2-sharebuttons';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Location } from '@angular/common';
+import { FactService } from './fact.service';
+import { AuthenticationService } from '../../authentication/authentication.service';
+import { Fact } from './fact';
+import { ShareButtonsModule } from 'ng2-sharebuttons';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -25,9 +25,9 @@ export class FactDetailComponent implements OnInit {
   private commentPage: number;
 
   constructor(private factService: FactService,
-              private route: ActivatedRoute,
-              private location: Location,
-              private authService: AuthenticationService) {
+    private route: ActivatedRoute,
+    private location: Location,
+    private authService: AuthenticationService) {
 
     this.fact = <Fact>{};
     this.factComments = [{}];
@@ -74,12 +74,12 @@ export class FactDetailComponent implements OnInit {
   rateFact(factId, value): void {
     this.factService.rateFact(factId, value)
       .subscribe((res: any) => {
-          this.fact.rating = +res.body.rate;
-          this.ratedCount += 1;
-        },
-        (err: any) => {
-          console.log(err);
-        });
+        this.fact.rating = +res.body.rate;
+        this.ratedCount += 1;
+      },
+      (err: any) => {
+        console.log(err);
+      });
   }
 
   addToFavorites(username, fact) {
@@ -111,6 +111,11 @@ export class FactDetailComponent implements OnInit {
 
     let newComments = this.factComments.slice(startIndex, endIndex);
     return newComments;
+  }
+
+  standby() {
+    //TODO: download the image!
+    this.fact.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
   }
 }
 

@@ -43,8 +43,4 @@ export class FactComponent {
     //TODO: download the image!
     this.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
   }
-
-  onScrollDown() {
-    console.log('scrolled down!!')
-  }
 }
