@@ -13,11 +13,13 @@ import { AuthenticationComponent } from './authentication/authentication.compone
 
 import { routes } from './router';
 import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { FactDetailComponent } from './components/facts/fact-detail.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { UserComponent } from './components/user/user.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     { path: 'facts/fact/:id', component: FactDetailComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'user', component: UserComponent }
+    { path: 'user', component: UserComponent },
+    { path: '**', component: PageNotFoundComponent }
 ];
 
 export { routes }
