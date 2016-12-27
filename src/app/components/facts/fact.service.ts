@@ -17,9 +17,13 @@ export class FactService {
         this.commentSubject = new Subject();
     }
 
-
-    getAllFacts() {
-        return this.http.get(`${this.host}facts/all`);
+    getAllFacts(page: number): Observable<any> {
+        return this.http.get(`${this.host}facts/all?page=${page}`)
+            .map((res: Response) => {
+                let body = res.json();
+                console.log(body);
+                return { status: res.status, body: body }
+            })
     }
 
     getFactById(id) {
@@ -62,6 +66,7 @@ export class FactService {
         this.commentSubject.next(comment);
     }
 
+
     getComment() {
         return this.commentSubject.asObservable();
     }
@@ -73,4 +78,5 @@ export class FactService {
 
         return this.http.post(`${this.host}facts/user/${username}/favorites`, body);
     }
+
 }

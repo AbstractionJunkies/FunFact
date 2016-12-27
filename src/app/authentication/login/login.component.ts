@@ -34,6 +34,10 @@ export class LoginComponent implements OnInit {
         this._notification.success('', res.body.message);
         setTimeout(() => this._router.navigateByUrl('/home'), 2500);
 
+      },
+        (err: any) => {
+        let notificationMsg = JSON.parse(err._body).message;
+        this._notification.error('', notificationMsg);
       });
   }
 

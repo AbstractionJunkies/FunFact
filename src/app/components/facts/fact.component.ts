@@ -1,8 +1,7 @@
 import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {Router} from '@angular/router';
 import {Fact} from './fact';
-import {InfiniteScroll} from 'angular2-infinite-scroll';
-import {CeiboShare} from 'ng2-social-share';
+import {FactService} from './fact.service';
 
 @Component({
   selector: '[fact-selector]',
