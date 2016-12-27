@@ -6,14 +6,10 @@ import { HttpModule } from '@angular/http';
 import { FactsModule } from './components/facts/facts.module';
 import { UserModule } from './components/user/user.module';
 import { AuthenticationModule } from './authentication/authentication.module';
-
-
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
-
-import { routes } from './router';
-import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FactsModule,
     AuthenticationModule,
     UserModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [
