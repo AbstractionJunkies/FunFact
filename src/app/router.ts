@@ -10,13 +10,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: FactsListComponent },
     { path: 'upload', component: FactUploadComponent },
     { path: 'facts/fact/:id', component: FactDetailComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     { path: 'user', component: UserComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
 
