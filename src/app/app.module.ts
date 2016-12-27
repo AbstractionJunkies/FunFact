@@ -11,6 +11,8 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 
+import { routes } from './router';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     HttpModule,
     FactsModule,
     AuthenticationModule,
-    UserModule
+    UserModule,
+    RouterModule.forRoot(routes, { useHash: true }),
   ],
   providers: [],
   bootstrap: [

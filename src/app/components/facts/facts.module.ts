@@ -17,13 +17,6 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { SearchPipe } from '../../pipes/searchPipe';
 import { SortPipe } from '../../pipes/sortPipe';
 
-const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: FactsListComponent },
-    { path: 'upload', component: FactUploadComponent },
-    { path: 'facts/fact/:id', component: FactDetailComponent }
-];
-
 @NgModule({
     declarations: [
         FactComponent,
@@ -39,7 +32,6 @@ const routes: Routes = [
         AuthenticationService
     ],
     imports: [
-        RouterModule.forRoot(routes, { useHash: true }),
         SharedModule,
         ImageUploadModule,
         Ng2UploaderModule,

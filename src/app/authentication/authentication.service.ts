@@ -60,7 +60,6 @@ export class AuthenticationService {
     createAuthorizationHeader(): Headers {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let authToken = localStorage.getItem(AuthToken);
-        console.log(authToken);
         headers.append('Authorization', authToken);
 
         return headers;
