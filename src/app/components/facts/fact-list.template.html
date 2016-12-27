@@ -11,6 +11,5 @@
 </div>
 <ul class="facts-list" infinite-scroll [scrollWindow]="true" (scrolled)="onScrollDown()">
   <li fact-selector *ngFor="let fact of (facts | search : searchPattern | sort:[sortPattern,orderPattern])" [fact]="fact">
-    {{fact}}
   </li>
 </ul>

@@ -16,10 +16,12 @@ export class FactDetailComponent implements OnInit {
     @Input() public fact: Fact;
 
     public factComments;
-    private factID;
+    public factCommentsToDisplay;
 
+    private factID;
     private ratedCount: number;
     private ratingArr: [number] = [1, 2, 3, 4, 5];
+    private commentPage: number;
 
     constructor(
         private factService: FactService,
@@ -50,12 +52,16 @@ export class FactDetailComponent implements OnInit {
             .map(r => r.json())
             .subscribe((result: any) => {
                 this.factComments = result;
+                this.commentPage = 0;
+                this.factCommentsToDisplay = this.getPagedComments(this.commentPage);
             });
 
         this.factService.getComment()
             .subscribe((comment) => {
                 this.factComments.push(comment);
             });
+
+
     }
 
     goBack(): void {
@@ -90,6 +96,21 @@ export class FactDetailComponent implements OnInit {
 
                 this.factService.addToFavorites(username, factToAdd).subscribe();
             });
+    }
+    loadMoreComments() {
+        this.commentPage += 1;
+        let newComments = this.getPagedComments(this.commentPage);
+        for (let comment of newComments) {
+            this.factCommentsToDisplay.push(comment);
+        }
+    }
+
+    getPagedComments(page: number) {
+        let startIndex = this.commentPage * 5;
+        let endIndex = startIndex + 5;
+
+        let newComments = this.factComments.slice(startIndex, endIndex);
+        return newComments
     }
 }
 

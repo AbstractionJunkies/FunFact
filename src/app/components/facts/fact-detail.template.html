@@ -23,7 +23,7 @@
 <fact-comment-selector factId={{fact._id}}></fact-comment-selector>
 
 <ul id="list-comments">
-    <li *ngFor="let comment of factComments">
+    <li *ngFor="let comment of factCommentsToDisplay">
         <div class="comment">
             <p>
                 <span class="glyphicon glyphicon-user"> {{comment.username}}</span>
@@ -34,3 +34,4 @@
         </div>
     </li>
 </ul>
+<button (click)='loadMoreComments()'>Load more </button>

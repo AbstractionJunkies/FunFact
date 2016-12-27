@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Fact } from './fact';
-// import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { FactService } from './fact.service';
 
 @Component({
@@ -30,7 +29,7 @@ export class FactComponent {
         this.img = fact.img;
         this.category = fact.category;
         this.comments = fact.comments;
-        // this.commentsCount = fact.comments.length;
+        this.commentsCount = fact.comments.length;
     }
 
 
@@ -42,9 +41,4 @@ export class FactComponent {
         this.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
     }
 
-    // onScroll() {
-    //     let page = document.getElementsByClassName('fact').length;
-    //     page = page - 5;
-    //     console.log(this._factsService.loadMoreFacts(page));
-    // }
 }
