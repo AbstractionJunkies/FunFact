@@ -18,7 +18,6 @@ import {Ng2UploaderModule} from 'ng2-uploader';
 import {SearchPipe} from '../../pipes/searchPipe';
 import {SortPipe} from '../../pipes/sortPipe';
 
-
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: FactsListComponent},

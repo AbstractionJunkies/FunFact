@@ -4,9 +4,6 @@ import { UserComponent } from './user.component';
 import { UserService } from './user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-const routes: Routes = [
-    { path: 'user', component: UserComponent }
-];
 
 @NgModule({
     declarations: [
@@ -16,7 +13,6 @@ const routes: Routes = [
         UserService
     ],
     imports: [
-        RouterModule.forRoot(routes, { useHash: true }),
         ReactiveFormsModule,
         CommonModule
     ],

@@ -6,16 +6,16 @@ import {HttpModule} from '@angular/http';
 import {FactsModule} from './components/facts/facts.module';
 import {UserModule} from './components/user/user.module';
 import {AuthenticationModule} from './authentication/authentication.module';
-
-
 import {AppComponent} from './app.component';
 import {AuthenticationComponent} from './authentication/authentication.component';
-
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,8 @@ import {AuthenticationComponent} from './authentication/authentication.component
     HttpModule,
     FactsModule,
     AuthenticationModule,
-    UserModule
+    UserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [
