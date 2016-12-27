@@ -2,8 +2,8 @@
     <h1>TITLE: {{fact.title}}</h1>
     <img class="fact-image-big" [src]='fact.img'>
     <div>
-        <span class="glyphicon glyphicon-user">: {{fact.uploader}}</span>
-        <span class="glyphicon glyphicon-tag">: {{fact.category}}</span>
+        <span class="glyphicon glyphicon-user">{{fact.uploader}}</span>
+        <span class="glyphicon glyphicon-tag">{{fact.category}}</span>
     </div>
     <input type="button" value="Back" (click)="goBack()">
     <input type="button" value="Add to favorites" (click)="addToFavorites(TODO-USERATUKA,fact)">
