@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Fact } from './fact';
-import { InfiniteScroll } from 'angular2-infinite-scroll';
+// import { InfiniteScroll } from 'angular2-infinite-scroll';
+import { FactService } from './fact.service';
 
 @Component({
     selector: '[fact-selector]',
@@ -18,7 +19,7 @@ export class FactComponent {
     private category: string;
     private comments: [string];
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private _factsService: FactService) {
 
     }
 
@@ -29,19 +30,21 @@ export class FactComponent {
         this.img = fact.img;
         this.category = fact.category;
         this.comments = fact.comments;
-        this.commentsCount = fact.comments.length;
+        // this.commentsCount = fact.comments.length;
     }
 
 
     goToDetail(id) {
         this.router.navigate(['/facts/fact', id]);
     }
-    standby(){
-      //TODO: download the image!
-       this.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
+    standby() {
+        //TODO: download the image!
+        this.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
     }
 
-    onScrollDown() {
-        console.log('scrolled down!!')
-    }
+    // onScroll() {
+    //     let page = document.getElementsByClassName('fact').length;
+    //     page = page - 5;
+    //     console.log(this._factsService.loadMoreFacts(page));
+    // }
 }
