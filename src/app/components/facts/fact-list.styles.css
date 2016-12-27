@@ -1,3 +1,4 @@
+
 .facts-list{
   text-align: center;
   display: inline-block;
@@ -7,7 +8,12 @@
   width: 100%;
 }
 
-
+#search{
+  border-radius: 5px;
+  width: 50%;
+  margin: 0px auto;
+  float: none;
+}
 
 ul{
   list-style-type: none;

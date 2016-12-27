@@ -1,4 +1,48 @@
+body {
+  background-image: url('http://www.birds.com/wp-content/uploads/home/bird4.jpg');
+}
+
 .main {
   width: 800px;
   padding: 20px;
+}
+
+#content {
+  padding: 30px;
+  width: 1000px;
+  margin: auto;
+  float: none;
+  background-color: whitesmoke;
+  /*border: 2px solid dodgerblue;*/
+  box-shadow: 0px 0px 10px grey;
+}
+
+.navbar {
+  margin: 0;
+  color: white;
+  background-color: dodgerblue;
+}
+.navbar a{
+  color: white;
+  font-weight: 700;
+}
+.navbar a:hover{
+  color: white;
+  font-size: 1.2vw;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+}
+
+
+.navbar a:hover:after {
+  content: '';
+  width: 100%;
+  left:0;
+  bottom: 0;
+  height: 3px;
+  position: absolute;
+  border: 1px solid white;
+  background-color: white;
 }
