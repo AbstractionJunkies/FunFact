@@ -1,6 +1,6 @@
 <div class="fact">
     <h1>TITLE: {{fact.title}}</h1>
-    <img class="fact-image-big" [src]='fact.img'>
+    <img class="fact-image-big" [src]='fact.img' (error)='standby($event)'>
     <div>
         <span class="glyphicon glyphicon-user">{{fact.uploader}}</span>
         <span class="glyphicon glyphicon-tag">{{fact.category}}</span>

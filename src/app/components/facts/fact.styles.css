@@ -1,22 +1,44 @@
-.fact{
-  border:1px solid lightgray;
-  border-radius:10px;
-  margin:10px;
+.fact {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin: 10px;
   position: relative;
   text-align: center;
 }
-.fact img{
+
+.fact img {
   width: 100%;
 }
-.fact h1{
+
+.fact h1 {
   color: dodgerblue;
   text-align: left;
 }
-.fact h1:hover{
+
+.fact h1:hover {
   color: orangered;
   text-decoration: underline;
 }
-.fact-info{
-  text-align: right;
+
+.fact-info {
+  text-align: center;
   margin: 10px;
+}
+
+.social-share-buttons {
+  display: inline-block;
+  background-color: #F8F8F8;
+  border:1px solid dodgerblue;
+  border-radius: 5px;
+}
+.sb-container h3{
+  margin: 0;
+}
+.sb-buttons{
+  margin: 0 !important;
+}
+.sb-title {
+  font-size: 16px;
+  color: dodgerblue;
+
 }

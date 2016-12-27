@@ -53,6 +53,8 @@
     "jsonwebtoken": "^5.7.0",
     "ng2-file-upload": "^1.1.4-2",
     "ng2-imageupload": "^1.2.2",
+    "ng2-sharebuttons": "^1.1.1",
+    "ng2-social-share": "0.0.10",
     "ng2-uploader": "^1.6.2",
     "node-uuid": "^1.4.7",
     "normalize.css": "^5.0.0",
