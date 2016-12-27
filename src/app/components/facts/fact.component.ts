@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Fact } from './fact';
+import { InfiniteScroll } from 'angular2-infinite-scroll';
 
 @Component({
     selector: '[fact-selector]',
@@ -38,5 +39,9 @@ export class FactComponent {
     standby(){
       //TODO: download the image!
        this.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
+    }
+
+    onScrollDown() {
+        console.log('scrolled down!!')
     }
 }

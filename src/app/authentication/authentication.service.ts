@@ -31,12 +31,15 @@ export class AuthenticationService {
                 let token = body.token;
 
                 localStorage.setItem(AuthToken, token);
+                this.loggedIn = true;
                 return { status: res.status, body: body }
             });
     }
 
-    logout(): void {
+    logout() {
+        console.log('logout');
         localStorage.removeItem(AuthToken);
+        this.loggedIn = false;
     }
 
     isLoggedIn(): boolean {

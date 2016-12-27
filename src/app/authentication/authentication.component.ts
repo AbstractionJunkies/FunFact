@@ -12,4 +12,7 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout(): void {
+
+  }
 }

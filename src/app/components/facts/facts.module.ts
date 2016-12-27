@@ -8,6 +8,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 import { SharedModule } from '../../shared/shared.module';
 import { FactComponent } from './fact.component';
 import { CommentComponent } from './comment.component';
+import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
@@ -15,7 +16,6 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 
 import { SearchPipe } from '../../pipes/searchPipe';
 import { SortPipe } from '../../pipes/sortPipe';
-
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -43,7 +43,8 @@ const routes: Routes = [
         SharedModule,
         ImageUploadModule,
         Ng2UploaderModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        InfiniteScrollModule
     ],
     exports: [RouterModule]
 })

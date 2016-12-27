@@ -1,4 +1,5 @@
-<div class="fact">
+<div class="fact" infinite-scroll [infiniteScrollDistance]="5"  [infiniteScrollThrottle]="500"
+  (scrolled)="onScrollDown()">
 
   <h1 class="clickable" (click)="goToDetail(id)">TITLE: {{title}}</h1>
   <img class="fact-image-small" [src]='img' (error)='standby($event)'>
