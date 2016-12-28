@@ -6,6 +6,7 @@ import {Ng2UploaderModule} from "ng2-uploader";
 import {ImageUploadModule} from "ng2-imageupload";
 import {HomeComponentService} from './home.service';
 import {HomeComponent} from './home.component';
+import {AuthenticationService} from "../authentication/authentication.service";
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import {HomeComponent} from './home.component';
   ],
   providers: [
     HomeComponentService,
+    AuthenticationService
   ],
   imports: [
     ImageUploadModule,

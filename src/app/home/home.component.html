@@ -6,5 +6,16 @@
 </h3>
 <div>
   <img class="fact-image-big" [src]='randomFact.img'>
+  <br/>
+  <br/>
+  <br/>
+  <div class="knowledgeBar">
+    <div class="knowledgeYes">YES {{randomFact.knowledgeCount.yes}}</div>
+    <div class="knowledgeNo">NO {{randomFact.knowledgeCount.no}}</div>
+  </div>
+  <div class="knowledgeButtons">
 
+    <button (click)="onYesClick()">Yes!</button>
+    <button (click)="onNoClick()">No!</button>
+  </div>
 </div>
