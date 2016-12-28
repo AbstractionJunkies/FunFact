@@ -4,18 +4,20 @@
             <li>
                 <a routerLink="/home" routerLinkActive="active">Home</a>
             </li>
-            <li>
+            <li *ngIf="_authService.isLoggedIn()">
                 <a routerLink="/upload" routerLinkActive="active">Upload</a>
             </li>
-            <li>
+            <li *ngIf="!_authService.isLoggedIn()">
                 <a routerLink="/register" routerLinkActive="active">Register</a>
             </li>
-            <li>
+            <li *ngIf="!_authService.isLoggedIn()">
                 <a routerLink="/login" routerLinkActive="active">Login</a>
             </li>
-            <li>
+            <li *ngIf="_authService.isLoggedIn()">
                 <a routerLink="/user" routerLinkActive="active">User</a>
-
+            </li>
+            <li *ngIf="_authService.isLoggedIn()">
+                <a (click)="logout()">Logout</a>
             </li>
         </ul>
     </nav>
