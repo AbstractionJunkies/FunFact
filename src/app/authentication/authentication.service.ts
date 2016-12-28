@@ -44,20 +44,10 @@ export class AuthenticationService {
     }
 
     isLoggedIn() {
-        let token = localStorage.getItem(AuthToken);
-        this.loggedIn = token ? true : false;
+        // let token = localStorage.getItem(AuthToken);
+        // this.loggedIn = token ? true : false;
         return this.loggedIn;
 
-        // this.getLoggedUser().subscribe(res => {
-        //     console.log(res.body);
-        //     if (res.body.user.username) {
-        //         this.loggedIn = true;
-        //         return this.loggedIn
-        //     }
-
-        //     this.loggedIn = false;
-        //     return this.loggedIn;
-        // })
     }
 
     getLoggedUser(): Observable<any> {
@@ -66,7 +56,14 @@ export class AuthenticationService {
 
         return this._http.get(GetLoggedUserUrl, options)
             .map((res: Response) => {
+                console.log('tuk');
                 let body = res.json();
+                console.log(body);
+                if (res.status === 401) {
+                    this.loggedIn = false;
+                } else {
+                    this.loggedIn = true;
+                }
                 return { status: res.status, body: body }
             })
     }
@@ -74,6 +71,7 @@ export class AuthenticationService {
     createAuthorizationHeader(): Headers {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let authToken = localStorage.getItem(AuthToken);
+
         headers.append('Authorization', authToken);
 
         return headers;

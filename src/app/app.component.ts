@@ -31,11 +31,15 @@ export class AppComponent implements OnInit {
     this._authService.getLoggedUser()
       .subscribe(result => {
         let username = result.body.username;
+        console.log(username);
         this._userService.getUserAvatar(username)
           .map(r => r.json())
           .subscribe(avatar => {
             this.userAvatar = this.imgUrl + avatar;
           });
+      },
+      (err) => {
+        console.log(err);
       });
   }
 
