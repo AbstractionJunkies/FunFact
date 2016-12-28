@@ -14,4 +14,7 @@ export class UserService {
         return this.http.get(`${this.host}facts/user/${username}/favorites`);
     }
 
+    getUserAvatar(username){
+        return this.http.get(`${this.host}facts/user/${username}/avatar`);
+    }
 }
