@@ -12,7 +12,7 @@ const AuthToken: string = 'auth_token';
 export class AuthenticationService {
 
     public redirectUrl: string;
-    private loggedIn = false;
+    public loggedIn = false;
 
     constructor(private _http: Http) {
 
@@ -44,9 +44,12 @@ export class AuthenticationService {
     }
 
     isLoggedIn() {
-        // let token = localStorage.getItem(AuthToken);
-        // this.loggedIn = token ? true : false;
-        return this.loggedIn;
+        let token = localStorage.getItem(AuthToken);
+        if (!token) {
+            return false;
+        }
+
+        return this.varifyToken();
 
     }
 
@@ -56,18 +59,38 @@ export class AuthenticationService {
 
         return this._http.get(GetLoggedUserUrl, options)
             .map((res: Response) => {
-                console.log('tuk');
+                let status = res.status;
+
                 let body = res.json();
                 console.log(body);
-                if (res.status === 401) {
+                if (status === 401) {
                     this.loggedIn = false;
                 } else {
+                    console.log('tuk');
                     this.loggedIn = true;
                 }
                 return { status: res.status, body: body }
             })
     }
 
+    varifyToken() {
+        let headers = this.createAuthorizationHeader();
+        let options = new RequestOptions({ headers: headers });
+
+        return this._http.get(GetLoggedUserUrl, options)
+            .map((res: Response) => {
+                let status = res.status;
+                let body = res.json();
+                console.log(body);
+                if (status !== 200) {
+                    return false;
+                } else {
+                    console.log('tuk');
+                    return true;
+                }
+            })
+
+    }
     createAuthorizationHeader(): Headers {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let authToken = localStorage.getItem(AuthToken);
