@@ -15,6 +15,7 @@ import { AuthGuard } from './guards/auth-guard.service';
 
 const routes: Routes = [
     { path: 'home', component: FactsListComponent },
+    { path: 'newHome', component: HomeComponent},
     { path: 'upload', component: FactUploadComponent, canActivate: [AuthGuard] },
     { path: 'facts/fact/:id', component: FactDetailComponent },
     { path: 'register', component: RegisterComponent },
