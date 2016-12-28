@@ -27,19 +27,23 @@ export class FactService {
     }
 
     getFactById(id) {
-        return this.http.get(`${this.host}facts/fact/${id}`);
+        let headers = this.auth.createAuthorizationHeader();
+        return this.http.get(`${this.host}facts/fact/${id}`, { headers: headers });
     }
 
     getFactComments(factId) {
-        return this.http.get(`${this.host}facts/fact/${factId}/comments`);
+        let headers = this.auth.createAuthorizationHeader();
+        return this.http.get(`${this.host}facts/fact/${factId}/comments`, { headers: headers });
     }
 
     addComment(comment, factId) {
+        let headers = this.auth.createAuthorizationHeader();
+
         let body = {
             comment
         };
 
-        return this.http.post(`${this.host}facts/fact/${factId}/comments`, body);
+        return this.http.post(`${this.host}facts/fact/${factId}/comments`, body, { headers: headers });
     }
 
     rateFact(factId, value): Observable<any> {
@@ -72,11 +76,13 @@ export class FactService {
     }
 
     addToFavorites(username, fact) {
+        let headers = this.auth.createAuthorizationHeader();
+
         let body = {
             fact
         };
 
-        return this.http.post(`${this.host}facts/user/${username}/favorites`, body);
+        return this.http.post(`${this.host}facts/user/${username}/favorites`, body, { headers: headers });
     }
 
 }

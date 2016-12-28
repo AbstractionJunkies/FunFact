@@ -35,6 +35,9 @@ export class FactUploadComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.options.authToken = JSON.stringify(localStorage.getItem('auth_token'));
+    this.options.authTokenPrefix = '';
+
     this._authService.getLoggedUser()
       .subscribe(res => {
         let currentLoggedUser = res.body.username;

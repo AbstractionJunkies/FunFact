@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { UserAvatarUploadComponent } from './user-avatar-upload.component';
 import { ImageUploadModule } from 'ng2-imageupload';
 import { Ng2UploaderModule } from 'ng2-uploader';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 @NgModule({
     declarations: [
@@ -13,7 +14,8 @@ import { Ng2UploaderModule } from 'ng2-uploader';
         UserAvatarUploadComponent
     ],
     providers: [
-        UserService
+        UserService,
+        AuthenticationService
     ],
     imports: [
         ReactiveFormsModule,
