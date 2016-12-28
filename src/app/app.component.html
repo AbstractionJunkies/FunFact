@@ -14,7 +14,8 @@
                 <a routerLink="/login" routerLinkActive="active">Login</a>
             </li>
             <li *ngIf="_authService.isLoggedIn()">
-                <a routerLink="/user" routerLinkActive="active">User</a>
+               <img [src]="userAvatar" (click)="redirectToUser()"> 
+               <!--<a routerLink="/user" routerLinkActive="active">User</a>-->
             </li>
             <li *ngIf="_authService.isLoggedIn()">
                 <a (click)="logout()">Logout</a>
