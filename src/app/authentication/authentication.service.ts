@@ -43,7 +43,7 @@ export class AuthenticationService {
         this.loggedIn = false;
     }
 
-    isLoggedIn() {
+    isLoggedIn(): any {
         let token = localStorage.getItem(AuthToken);
         if (!token) {
             return false;
