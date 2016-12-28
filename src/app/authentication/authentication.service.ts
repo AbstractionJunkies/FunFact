@@ -81,11 +81,9 @@ export class AuthenticationService {
             .map((res: Response) => {
                 let status = res.status;
                 let body = res.json();
-                console.log(body);
                 if (status !== 200) {
                     return false;
                 } else {
-                    console.log('tuk');
                     return true;
                 }
             })
