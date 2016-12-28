@@ -11,6 +11,7 @@ const AuthToken: string = 'auth_token';
 @Injectable()
 export class AuthenticationService {
 
+    public redirectUrl: string;
     private loggedIn = false;
 
     constructor(private _http: Http) {
