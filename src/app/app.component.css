@@ -22,11 +22,13 @@ body {
   color: white;
   background-color: dodgerblue;
 }
-.navbar a{
+
+.navbar a {
   color: white;
   font-weight: 700;
 }
-.navbar a:hover{
+
+.navbar a:hover {
   color: white;
   font-size: 1.2vw;
   -webkit-transition: all 0.3s ease;
@@ -35,14 +37,19 @@ body {
   -ms-transition: all 0.3s ease;
 }
 
-
 .navbar a:hover:after {
   content: '';
   width: 100%;
-  left:0;
+  left: 0;
   bottom: 0;
   height: 3px;
   position: absolute;
   border: 1px solid white;
   background-color: white;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
 }

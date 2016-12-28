@@ -11,6 +11,7 @@ const AuthToken: string = 'auth_token';
 @Injectable()
 export class AuthenticationService {
 
+    public redirectUrl: string;
     private loggedIn = false;
 
     constructor(private _http: Http) {
@@ -42,8 +43,21 @@ export class AuthenticationService {
         this.loggedIn = false;
     }
 
-    isLoggedIn(): boolean {
+    isLoggedIn() {
+        let token = localStorage.getItem(AuthToken);
+        this.loggedIn = token ? true : false;
         return this.loggedIn;
+
+        // this.getLoggedUser().subscribe(res => {
+        //     console.log(res.body);
+        //     if (res.body.user.username) {
+        //         this.loggedIn = true;
+        //         return this.loggedIn
+        //     }
+
+        //     this.loggedIn = false;
+        //     return this.loggedIn;
+        // })
     }
 
     getLoggedUser(): Observable<any> {
