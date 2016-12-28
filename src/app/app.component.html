@@ -1,28 +1,33 @@
 <header>
-    <nav class="navbar navbar-default navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-            <li>
-                <a routerLink="/home" routerLinkActive="active">Home</a>
-            </li>
-            <li *ngIf="_authService.isLoggedIn()">
-                <a routerLink="/upload" routerLinkActive="active">Upload</a>
-            </li>
-            <li *ngIf="!_authService.isLoggedIn()">
-                <a routerLink="/register" routerLinkActive="active">Register</a>
-            </li>
-            <li *ngIf="!_authService.isLoggedIn()">
-                <a routerLink="/login" routerLinkActive="active">Login</a>
-            </li>
-            <li *ngIf="_authService.isLoggedIn()">
-               <img [src]="userAvatar" (click)="redirectToUser()"> 
-               <!--<a routerLink="/user" routerLinkActive="active">User</a>-->
-            </li>
-            <li *ngIf="_authService.isLoggedIn()">
-                <a (click)="logout()">Logout</a>
-            </li>
-        </ul>
-    </nav>
+  <nav class="navbar navbar-default navbar-responsive-collapse">
+    <div class="navbar-container">
+      <ul class="nav navbar-nav">
+        <li>
+          <a routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li *ngIf="_authService.isLoggedIn()">
+          <a routerLink="/upload" routerLinkActive="active">Upload</a>
+        </li>
+      </ul>
+      <ul class=" nav navbar-nav pull-right">
+        <li *ngIf="!_authService.isLoggedIn()">
+          <a routerLink="/register" routerLinkActive="active">Register</a>
+        </li>
+        <li *ngIf="!_authService.isLoggedIn()">
+          <a routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+        <li *ngIf="_authService.isLoggedIn()">
+          <img [src]="userAvatar" (click)="redirectToUser()">
+          <!--<a routerLink="/user" routerLinkActive="active">User</a>-->
+        </li>
+        <li *ngIf="_authService.isLoggedIn()">
+          <a (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
 </header>
 <div id="content" class="facts-container">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

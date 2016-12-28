@@ -22,10 +22,22 @@ body {
   color: white;
   background-color: dodgerblue;
 }
+.navbar-container{
+  width: 1000px;
+  margin: auto;
+}
 
 .navbar a {
   color: white;
   font-weight: 700;
+}
+.navbar li{
+  line-height: 52px;
+}
+li img{
+  vertical-align: middle;
+  border: 1px solid white;
+  border-radius: 50%;
 }
 
 .navbar a:hover {
