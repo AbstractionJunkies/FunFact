@@ -1,4 +1,4 @@
-<div class="fact">
+<div class="fact" [@factPanel]="'animate'">
     <h1>TITLE: {{fact.title}}</h1>
     <img class="fact-image-big" [src]='fact.img' (error)='standby($event)'>
     <div>
@@ -8,31 +8,33 @@
     <input type="button" value="Back" (click)="goBack()">
     <input type="button" value="Add to favorites" (click)="addToFavorites(TODO-USERATUKA,fact)">
 </div>
-<div> COMMENTS: </div>
-<div>
-    <app-rating [rating]='fact.rating' (ratingClicked)='onRatingClicked($event)'>
-    </app-rating>
-    <span>{{fact.rating | number : '1.2-2'}}</span>
-    <span>Total users voted: {{ratedCount}} </span>
-    <select #factRating>
+
+<div [@factComments]="'animate'">
+    <div>
+        <app-rating [rating]='fact.rating' (ratingClicked)='onRatingClicked($event)'>
+        </app-rating>
+        <span>{{fact.rating | number : '1.2-2'}}</span>
+        <span>Total users voted: {{ratedCount}} </span>
+        <select #factRating>
         <option *ngFor="let rate of ratingArr" [ngValue]="rate">{{rate}}</option>
     </select>
-    <button (click)="rateFact(fact._id,factRating.value)">Rate</button>
-</div>
+        <button (click)="rateFact(fact._id,factRating.value)">Rate</button>
+    </div>
 
-<fact-comment-selector factId={{fact._id}}></fact-comment-selector>
+    <fact-comment-selector factId={{fact._id}}></fact-comment-selector>
 
-<ul id="list-comments">
-    <li *ngFor="let comment of factCommentsToDisplay">
-        <div class="comment">
-            <p>
-                <span class="glyphicon glyphicon-user"> {{comment.username}}</span>
-            </p>
-            <div>
-                {{comment.comment}}
+    <ul id="list-comments">
+        <li *ngFor="let comment of factCommentsToDisplay">
+            <div class="comment">
+                <p>
+                    <span class="glyphicon glyphicon-user"> {{comment.username}}</span>
+                </p>
+                <div>
+                    {{comment.comment}}
+                </div>
             </div>
-        </div>
-    </li>
-</ul>
-<button *ngIf="!noMoreComments" (click)='loadMoreComments()'>Load More</button>
-<span *ngIf="noMoreComments"> no more comments</span>
+        </li>
+    </ul>
+    <button *ngIf="!noMoreComments" (click)='loadMoreComments()'>Load More</button>
+    <span *ngIf="noMoreComments"> no more comments</span>
+</div>
