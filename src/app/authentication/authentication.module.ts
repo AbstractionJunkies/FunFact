@@ -19,6 +19,7 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
     RegisterComponent,
     LoginComponent,
   ],
-  providers: [AuthenticationService, NotificationsService]
+  providers: [AuthenticationService, NotificationsService],
+  exports: [SimpleNotificationsModule]
 })
 export class AuthenticationModule { }

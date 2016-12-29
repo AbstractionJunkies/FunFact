@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service';
 import { NotificationsService } from '../../../../node_modules/angular2-notifications';
+import { UserService } from '../../components/user/user.service';
+
 import { Router } from '@angular/router';
 
 
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private _authService: AuthenticationService,
     private _notification: NotificationsService,
-    private _router: Router) { }
+    private _router: Router,
+    private _userService: UserService) { }
 
   ngOnInit() {
     this.userToLogin = this.fb.group({
@@ -32,10 +35,11 @@ export class LoginComponent implements OnInit {
     this._authService.login(this.userToLogin.value)
       .subscribe((res: any) => {
         this._notification.success('', res.body.message);
-        setTimeout(() => this._router.navigateByUrl('/home'), 2500);
 
+        this._userService.loadAvatar();
+        this._router.navigate(['/home']);
       },
-        (err: any) => {
+      (err: any) => {
         let notificationMsg = JSON.parse(err._body).message;
         this._notification.error('', notificationMsg);
       });

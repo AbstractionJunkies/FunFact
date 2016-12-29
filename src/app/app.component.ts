@@ -12,13 +12,14 @@ import { UserService } from './components/user/user.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title: string;
-  url: string = 'http://localhost:1337/api/home';
-
+  public title: string;
+  public url: string = 'http://localhost:1337/api/home';
   public userAvatar: string;
+  state: string = 'active';
+
   private imgUrl: string = 'http://localhost:1337/static/images/user-аvatar-images/';
 
   constructor(
@@ -35,20 +36,7 @@ export class AppComponent implements OnInit {
         this.userAvatar = this.imgUrl + result;
       });
 
-    this._authService.getLoggedUser()
-      .subscribe(result => {
-        let username = result.body.username;
-        setTimeout(() => {
-          this._userService.getUserAvatar(username)
-            .map(r => r.json())
-            .subscribe(avatar => {
-              this.userAvatar = this.imgUrl + avatar;
-            });
-        }, 1000);
-      },
-      (err) => {
-        console.log(err);
-      });
+    this._userService.loadAvatar();
 
   }
 
@@ -59,5 +47,4 @@ export class AppComponent implements OnInit {
   redirectToUser() {
     this.router.navigate(['/user']);
   }
-
 }

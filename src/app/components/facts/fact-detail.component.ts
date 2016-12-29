@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { FactService } from './fact.service';
@@ -10,9 +10,28 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
   templateUrl: './fact-detail.template.html',
-  styleUrls: ['./fact-detail.css']
+  styleUrls: ['./fact-detail.css'],
+  animations: [
+    trigger('factPanel', [
+      transition('void => *', [
+        animate(600, keyframes([
+          style({ oppacity: 0, transform: 'translateX(-200px)', offset: 0 }),
+          style({ oppacity: 1, transform: 'translateX(-25px)', offset: .75 }),
+          style({ oppacity: 1, transform: 'translateX(0)', offset: 1 }),
+        ]))
+      ])
+    ]),
+    trigger('factComments', [
+      transition('void => *', [
+        animate(600, keyframes([
+          style({ oppacity: 0, transform: 'translateX(200px)', offset: 0 }),
+          style({ oppacity: 1, transform: 'translateX(25px)', offset: .75 }),
+          style({ oppacity: 1, transform: 'translateX(0)', offset: 1 }),
+        ]))
+      ])
+    ])
+  ]
 })
-
 export class FactDetailComponent implements OnInit {
   @Input() public fact: Fact;
 
@@ -21,7 +40,6 @@ export class FactDetailComponent implements OnInit {
 
   private factID;
   private ratedCount: number;
-  private ratingArr: [number] = [1, 2, 3, 4, 5];
   private commentPage: number;
   private noMoreComments: boolean = false;
 

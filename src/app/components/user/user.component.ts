@@ -4,8 +4,8 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 
 @Component({
     template: `
-        <input type="button" value="favorites" (click)="showFavorites()">
-        <input type="button" value="settings" (click)="showSettings()">
+        <input type="button" value="favorites" (click)="showFavorites()" class="form-control">
+        <input type="button" value="settings" (click)="showSettings()" class="form-control">
         <ul *ngIf="displayFavorites">
             <li *ngFor="let favorite of userFavorites">
             <h1>{{favorite.title}}</h1>
@@ -58,7 +58,7 @@ export class UserComponent implements OnInit {
         this.displayFavorites = true;
         this.displaySettings = false;
     }
-    
+
     showSettings() {
         this.displayFavorites = false;
         this.displaySettings = true;
