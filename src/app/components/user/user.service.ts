@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Response } from '@angular/http';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
 import { Subject } from 'rxjs/Subject';
@@ -26,11 +26,11 @@ export class UserService {
         return this.http.get(`${this.host}api/users/user/${username}/favorites`, { headers: headers });
     }
 
-    getUserAvatar(username) {
-        let headers = this.auth.createAuthorizationHeader();
+    // getUserAvatar(username) {
+    //     let headers = this.auth.createAuthorizationHeader();
 
-        return this.http.get(`${this.host}api/users/user/${username}/avatar`, { headers: headers });
-    }
+    //     return this.http.get(`${this.host}api/users/user/${username}/avatar`, { headers: headers });
+    // }
 
     setAvatar(avatar) {
         this.avatarSubject.next(avatar);
@@ -49,16 +49,20 @@ export class UserService {
                     let username = result.body.username;
                     console.log(result);
                     this.setAvatar(result.body.avatar);
-                    // this.getUserAvatar(username)
-                    //     .map(r => r.json())
-                    //     .subscribe(avatar => {
-                    //         console.log(avatar);
-                    //         this.setAvatar(avatar);
-                    //     });
+
                 },
                 (err) => {
                     console.log(err);
                 });
         }
+    }
+
+    updateSettings(id, data) {
+        let headers = this.auth.createAuthorizationHeader();
+
+        return this.http.put(`${this.host}api/users/user/${id}/`, JSON.stringify(data), { headers: headers })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() };
+            });
     }
 }

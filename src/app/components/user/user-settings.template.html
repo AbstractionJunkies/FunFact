@@ -1,11 +1,5 @@
 <div class="container-fluid">
-    <form [formGroup]="userSettingsToUpdate" #userSettingsForm="ngForm" class="container text-center" (ngSubmit)="updateSettings(); userSettingsForm.reset()">
-        <img [src]="userAvatar" id="profile-avatar">
-        <div class="form-group">
-            <label for="">Pick your avatar</label>
-            <input type="file" #file (onUpload)="handleUpload($event)" [events]="events" ngFileSelect [options]="options">
-            <input type="button" value="Change avatar" (click)="startUpload(file.value)" class="form-control" />
-        </div>
+    <form [formGroup]="userSettingsToUpdate" #userSettingsForm="ngForm" class="container text-center" (ngSubmit)="updateSettings(); userSettingsForm.reset()">     
         <div class="form-group">
             <label for="newPassword">Enter new password</label>
             <input name="newPassword" type="password" class="form-control" formControlName="newPassword">

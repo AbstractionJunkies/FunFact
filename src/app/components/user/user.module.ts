@@ -8,11 +8,13 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 import { UserSettingsComponent } from './user-settings.component';
 
 import { AuthenticationModule } from '../../authentication/authentication.module';
+import { UserAvatarSettings } from './user-avatar-change.component';
 
 @NgModule({
     declarations: [
         UserComponent,
-        UserSettingsComponent
+        UserSettingsComponent,
+        UserAvatarSettings
     ],
     providers: [
         UserService

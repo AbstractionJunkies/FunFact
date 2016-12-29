@@ -2,22 +2,27 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { UserService } from './user.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
-import { Response } from '@angular/http';
-import { NotificationsService } from '../../../../node_modules/angular2-notifications';
 
 
 @Component({
-    selector: 'user-settings-selector',
-    templateUrl: './user-settings.template.html',
+    selector: 'avatar-upload-selector',
+    templateUrl: './user-upload-avatar.template.html',
     styleUrls: ['./user-settings.styles.css']
 })
-export class UserSettingsComponent implements OnInit {
+export class UserAvatarSettings implements OnInit {
 
     private events: EventEmitter<any> = new EventEmitter();
     private username: string;
-    private userId: string;
-
+    private userAvatar: string;
     private imgUrl: string = 'http://localhost:1337/static/images/user-аvatar-images/';
+
+    private options: any = {
+        url: 'http://localhost:1337/api/users/user/avatar',
+        data: {
+            username: '',
+        },
+        autoUpload: false
+    };
 
     public userSettingsToUpdate: FormGroup;
     public notificationOptions: Object;
@@ -27,39 +32,43 @@ export class UserSettingsComponent implements OnInit {
     constructor(
         private authService: AuthenticationService,
         private userService: UserService,
-        private fb: FormBuilder,
-        private notification: NotificationsService
+        private fb: FormBuilder
     ) { }
 
     ngOnInit(): void {
-
+        this.options.authToken = JSON.stringify(localStorage.getItem('auth_token'));
+        this.options.authTokenPrefix = '';
+        
         this.authService.getLoggedUser()
             .subscribe(res => {
                 let currentLoggedUser = res.body.username;
                 this.username = currentLoggedUser;
-                this.userId = res.body._id;
+                this.userAvatar = this.imgUrl + res.body.avatar;
             });
 
         this.userSettingsToUpdate = this.fb.group({
-            'newPassword': ['', Validators.minLength(4)],
-            'email': ['',],
             'currentPassword': ['', Validators.required],
         });
 
         this.notificationOptions = { timeOut: 2500, pauseOnHover: true, showProgressBar: false, animate: 'scale', position: ['right', 'top'] };
+
     }
 
-    updateSettings() {
-        this.userService.updateSettings(this.userId, this.userSettingsToUpdate.value)
-            .subscribe((res: any) => {
-                if (res.status === 201) {
-                    this.notification.success('', res.body.message);
-                } else {
-                    this.notification.error('', res.body.message);
-                }
-            },
-            (err) => {
-                console.log(err);
-            });
+    handleUpload(data): void {
+        if (data && data.response) {
+            this.userService.setAvatar(data.response);
+        }
     }
+
+    startUpload(file) {
+        this.options.data.username = this.username;
+        this.options.data.currentPassword = this.userSettingsToUpdate.value.currentPassword;
+
+        if (file === '') {
+            return;
+        }
+
+        this.events.emit('startUpload');
+    }
+
 }
