@@ -1,0 +1,9 @@
+<div style="display: block" class="chart">
+  <h1>{{title}}</h1>
+  <canvas baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">asd</canvas>
+</div>
