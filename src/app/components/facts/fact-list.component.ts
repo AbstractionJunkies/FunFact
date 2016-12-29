@@ -33,8 +33,6 @@ export class FactsListComponent implements OnInit {
     if (this._alreadyLoaded.indexOf(page) < 0) {
       this.factService.getAllFacts(page)
         .subscribe((res: any) => {
-          console.log(res.body.length);
-          console.log(res.body);
           if (res.body.length !== 0) {
             for (let fact of res.body) {
               this.facts.push(fact);

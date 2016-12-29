@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core'
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map'
+import { Router } from '@angular/router';
+
+import 'rxjs/add/operator/map';
 
 const RegisterUrl: string = 'http://localhost:1337/api/auth/register';
 const LoginUrl: string = 'http://localhost:1337/api/auth/login';
@@ -14,8 +16,9 @@ export class AuthenticationService {
     public redirectUrl: string;
     public loggedIn = false;
 
-    constructor(private _http: Http) {
-
+    constructor(
+        private _http: Http,
+        private _router: Router) {
     }
 
     register(userToRegister: Object): Observable<any> {
@@ -38,9 +41,9 @@ export class AuthenticationService {
     }
 
     logout() {
-        console.log('logout');
         localStorage.removeItem(AuthToken);
         this.loggedIn = false;
+        this._router.navigate(['/home']);
     }
 
     isLoggedIn(): any {
@@ -62,11 +65,9 @@ export class AuthenticationService {
                 let status = res.status;
 
                 let body = res.json();
-                console.log(body);
                 if (status === 401) {
                     this.loggedIn = false;
                 } else {
-                    console.log('tuk');
                     this.loggedIn = true;
                 }
                 return { status: res.status, body: body }

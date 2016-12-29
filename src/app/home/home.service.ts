@@ -16,7 +16,6 @@ export class HomeComponentService {
     return this._http.get(HomeUrl)
       .map((res: Response) => {
         let body = res.json();
-        console.log(res.json());
         return {status: res.status, body: body}
       })
   }
@@ -29,7 +28,6 @@ export class HomeComponentService {
     return this._http.put(`${HomeUrl}facts/fact/vote/${factId}`, JSON.stringify(body), {headers: headers})
       .map((res: Response) => {
         let body = res.json();
-        console.log(body);
         return {status: res.status, body: body}
       })
   }
@@ -42,7 +40,6 @@ export class HomeComponentService {
     return this._http.put(`${HomeUrl}facts/fact/vote/${factId}`, JSON.stringify(body), {headers: headers})
       .map((res: Response) => {
         let body = res.json();
-        console.log(body);
         return {status: res.status, body: body}
       })
   }

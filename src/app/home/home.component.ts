@@ -28,16 +28,13 @@ export class HomeComponent implements OnInit {
     this._homeService.getHome()
       .subscribe((res: any) => {
         this.randomFact = res.body;
-        console.log(this.randomFact)
       });
-    console.log(this.randomFact);
   }
 
   onYesClick(): void {
     this._homeService.voteYes(this.randomFact._id, 'yes')
       .subscribe((res: any) => {
           this.randomFact.knowledgeCount.yes += 1;
-          console.log(res);
         },
         (err: any) => {
           console.log(err);

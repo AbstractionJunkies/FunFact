@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-    console.log(this.userToRegister.value);
     this._authService
       .register(this.userToRegister.value)
       .subscribe((res: any) => {

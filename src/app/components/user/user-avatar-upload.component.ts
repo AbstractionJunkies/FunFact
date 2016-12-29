@@ -2,11 +2,12 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { UserService } from './user.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
+
 @Component({
     selector: 'avatar-upload-selector',
     template: `
     <div>
-        <input type="file" #file [events]="events" ngFileSelect [options]="options" >
+        <input type="file" #file (onUpload)="handleUpload($event)" [events]="events" ngFileSelect [options]="options" >
         <input type="button" value="Upload" (click)="startUpload(file.value)" />
     </div>
     `
@@ -24,7 +25,10 @@ export class UserAvatarUploadComponent implements OnInit {
         autoUpload: false
     };
 
-    constructor(private authService: AuthenticationService) {
+    constructor(
+        private authService: AuthenticationService,
+        private userService: UserService
+    ) {
 
     }
 
@@ -34,6 +38,12 @@ export class UserAvatarUploadComponent implements OnInit {
                 let currentLoggedUser = res.body.username;
                 this.username = currentLoggedUser;
             });
+    }
+
+    handleUpload(data): void {
+        if (data && data.response) {
+            this.userService.setAvatar(data.response);
+        }
     }
 
     startUpload(file) {

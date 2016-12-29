@@ -5,8 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortPipe implements PipeTransform {
     transform(items: any[], props: string[]) {
-        console.log(items);
-        console.log(props);
 
         let sort: string = props[0] || 'title';
         let order: string = props[1] || 'Ascending';

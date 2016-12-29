@@ -58,6 +58,7 @@ export class UserComponent implements OnInit {
         this.displayFavorites = true;
         this.displaySettings = false;
     }
+    
     showSettings() {
         this.displayFavorites = false;
         this.displaySettings = true;

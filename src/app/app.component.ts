@@ -8,6 +8,7 @@ import 'rxjs/add/operator/map';
 import { AuthenticationService } from './authentication/authentication.service';
 import { UserService } from './components/user/user.service';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
 
   public userAvatar: string;
   private imgUrl: string = 'http://localhost:1337/static/images/user-аvatar-images/';
+
   constructor(
     private _authService: AuthenticationService,
     private _userService: UserService,
@@ -28,19 +30,26 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this._userService.getAvatar()
+      .subscribe(result => {
+        this.userAvatar = this.imgUrl + result;
+      });
+
     this._authService.getLoggedUser()
       .subscribe(result => {
         let username = result.body.username;
-        console.log(username);
-        this._userService.getUserAvatar(username)
-          .map(r => r.json())
-          .subscribe(avatar => {
-            this.userAvatar = this.imgUrl + avatar;
-          });
+        setTimeout(() => {
+          this._userService.getUserAvatar(username)
+            .map(r => r.json())
+            .subscribe(avatar => {
+              this.userAvatar = this.imgUrl + avatar;
+            });
+        }, 1000);
       },
       (err) => {
         console.log(err);
       });
+
   }
 
   logout(): void {
@@ -50,4 +59,5 @@ export class AppComponent implements OnInit {
   redirectToUser() {
     this.router.navigate(['/user']);
   }
+
 }

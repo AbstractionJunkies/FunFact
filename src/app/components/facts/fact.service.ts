@@ -21,7 +21,6 @@ export class FactService {
         return this.http.get(`${this.host}facts/all?page=${page}`)
             .map((res: Response) => {
                 let body = res.json();
-                console.log(body);
                 return { status: res.status, body: body }
             })
     }
@@ -51,7 +50,6 @@ export class FactService {
         if (typeof (value) === 'undefined' || !value) {
 
         }
-        console.log(factId, value);
         let headers = this.auth.createAuthorizationHeader();
 
         let body = {
@@ -61,7 +59,6 @@ export class FactService {
         return this.http.put(`${this.host}facts/fact/${factId}`, JSON.stringify(body), { headers: headers })
             .map((res: Response) => {
                 let body = res.json();
-                console.log(body);
                 return { status: res.status, body: body }
             })
     }
