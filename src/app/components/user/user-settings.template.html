@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <form [formGroup]="userSettingsToUpdate" #userSettingsForm="ngForm" class="container text-center" (ngSubmit)="updateSettings(); userSettingsForm.reset()">
+        <img [src]="userAvatar" id="profile-avatar">
+        <div class="form-group">
+            <label for="">Pick your avatar</label>
+            <input type="file" #file (onUpload)="handleUpload($event)" [events]="events" ngFileSelect [options]="options">
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!userSettingsToUpdate.controls['newPassword'].valid}">
+            <label for="newPassword">Enter new password</label>
+            <input id="newpassword" name="newPassword" type="password" class="form-control">
+            <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['newPassword'].valid && userToRegister.controls['newPassword'].touched">Password too short</span>
+
+        </div>
+        <div class="form-group">
+            <label for="email">Enter new Email</label>
+            <input id="email" name="email" type="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="currentPassword">Enter your current password</label>
+            <input name="currentPassword" type="password" class="form-control">
+            <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['currentPassword'].valid && userSettingsToUpdate.controls['currentPassword'].touched">Please enter your password in order to change your user setting</span>
+        </div>
+        <button class="btn btn-default regbutton">Register</button>
+
+        <input type="button" value="Upload" (click)="startUpload(file.value)" class="form-control" />
+    </form>
+    <simple-notifications [options]="notificationOptions "></simple-notifications>
+</div>

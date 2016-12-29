@@ -47,11 +47,14 @@ export class UserService {
             this.auth.getLoggedUser()
                 .subscribe(result => {
                     let username = result.body.username;
-                    this.getUserAvatar(username)
-                        .map(r => r.json())
-                        .subscribe(avatar => {
-                            this.setAvatar(avatar);
-                        });
+                    console.log(result);
+                    this.setAvatar(result.body.avatar);
+                    // this.getUserAvatar(username)
+                    //     .map(r => r.json())
+                    //     .subscribe(avatar => {
+                    //         console.log(avatar);
+                    //         this.setAvatar(avatar);
+                    //     });
                 },
                 (err) => {
                     console.log(err);
