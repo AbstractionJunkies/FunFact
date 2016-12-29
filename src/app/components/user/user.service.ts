@@ -39,4 +39,23 @@ export class UserService {
     getAvatar() {
         return this.avatarSubject.asObservable();
     }
+
+    loadAvatar() {
+        let token = localStorage.getItem('auth_token');
+
+        if (token) {
+            this.auth.getLoggedUser()
+                .subscribe(result => {
+                    let username = result.body.username;
+                    this.getUserAvatar(username)
+                        .map(r => r.json())
+                        .subscribe(avatar => {
+                            this.setAvatar(avatar);
+                        });
+                },
+                (err) => {
+                    console.log(err);
+                });
+        }
+    }
 }

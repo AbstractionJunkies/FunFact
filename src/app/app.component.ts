@@ -35,20 +35,7 @@ export class AppComponent implements OnInit {
         this.userAvatar = this.imgUrl + result;
       });
 
-    this._authService.getLoggedUser()
-      .subscribe(result => {
-        let username = result.body.username;
-        setTimeout(() => {
-          this._userService.getUserAvatar(username)
-            .map(r => r.json())
-            .subscribe(avatar => {
-              this.userAvatar = this.imgUrl + avatar;
-            });
-        }, 1000);
-      },
-      (err) => {
-        console.log(err);
-      });
+    this._userService.loadAvatar();
 
   }
 

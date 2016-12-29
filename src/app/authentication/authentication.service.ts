@@ -70,8 +70,8 @@ export class AuthenticationService {
                 } else {
                     this.loggedIn = true;
                 }
-                return { status: res.status, body: body }
-            })
+                return { status: res.status, body: body };
+            });
     }
 
     varifyToken() {
