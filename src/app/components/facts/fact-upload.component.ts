@@ -30,7 +30,6 @@ export class FactUploadComponent implements OnInit {
     if (title === '' || category === 'select' || file === '') {
       return;
     }
-
     this.events.emit('startUpload');
   }
 

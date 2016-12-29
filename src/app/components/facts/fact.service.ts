@@ -79,7 +79,7 @@ export class FactService {
             fact
         };
 
-        return this.http.post(`${this.host}facts/user/${username}/favorites`, body, { headers: headers });
+        return this.http.post(`${this.host}api/users/user/${username}/favorites`, body, { headers: headers });
     }
 
 }

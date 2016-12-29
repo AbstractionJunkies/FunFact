@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { UserService } from './user.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -17,9 +17,9 @@ export class UserSettingsComponent implements OnInit {
     private imgUrl: string = 'http://localhost:1337/static/images/user-аvatar-images/';
 
     private options: any = {
-        url: 'http://localhost:1337/facts/user/avatar',
+        url: 'http://localhost:1337/api/users/user/avatar',
         data: {
-            username: ''
+            username: '',
         },
         autoUpload: false
     };
@@ -36,6 +36,7 @@ export class UserSettingsComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+
         this.authService.getLoggedUser()
             .subscribe(res => {
                 let currentLoggedUser = res.body.username;
@@ -61,8 +62,12 @@ export class UserSettingsComponent implements OnInit {
 
     startUpload(file) {
         this.options.data.username = this.username;
+        this.options.data.currentPassword = this.userSettingsToUpdate.value.currentPassword;
 
         if (file === '') {
+            file = 'peho';
+            this.events.emit('startUpload');
+
             return;
         }
 
@@ -71,5 +76,6 @@ export class UserSettingsComponent implements OnInit {
 
     updateSettings() {
         console.log('update settings');
+        console.log(this.userSettingsToUpdate.value);
     }
 }

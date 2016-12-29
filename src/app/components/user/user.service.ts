@@ -23,13 +23,13 @@ export class UserService {
     getUserFavorites(username) {
         let headers = this.auth.createAuthorizationHeader();
 
-        return this.http.get(`${this.host}facts/user/${username}/favorites`, { headers: headers });
+        return this.http.get(`${this.host}api/users/user/${username}/favorites`, { headers: headers });
     }
 
     getUserAvatar(username) {
         let headers = this.auth.createAuthorizationHeader();
 
-        return this.http.get(`${this.host}facts/user/${username}/avatar`, { headers: headers });
+        return this.http.get(`${this.host}api/users/user/${username}/avatar`, { headers: headers });
     }
 
     setAvatar(avatar) {
