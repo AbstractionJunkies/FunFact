@@ -8,7 +8,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { FactComponent } from './fact.component';
 import { CommentComponent } from './comment.component';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
-import { ShareButtonsModule } from "ng2-sharebuttons";
+import { ShareButtonsModule } from 'ng2-sharebuttons';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImageUploadModule } from 'ng2-imageupload';
