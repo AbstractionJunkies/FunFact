@@ -4,18 +4,20 @@
 <h3>
   {{randomFact.title}}
 </h3>
-<div>
-  <img class="fact-image-big" [src]='randomFact.img'>
+<div >
+  <img *ngIf="!voted" class="fact-image-big" [src]='randomFact.img'>
   <br/>
   <br/>
   <br/>
-  <div class="knowledgeBar">
-    <div class="knowledgeYes">YES {{randomFact.knowledgeCount.yes}}</div>
-    <div class="knowledgeNo">NO {{randomFact.knowledgeCount.no}}</div>
+  <div *ngIf="voted" class="knowledgeBar">
+    <knowledge-pie-chart
+      [countYes]="randomFact.knowledgeCount.yes"
+      [countNo]="randomFact.knowledgeCount.no">
+    </knowledge-pie-chart>
   </div>
   <div class="knowledgeButtons">
-
     <button (click)="onYesClick()">Yes!</button>
     <button (click)="onNoClick()">No!</button>
   </div>
+
 </div>
