@@ -1,0 +1,12 @@
+<ul>
+  <li *ngFor="let user of info">
+    <ul>
+      <li>{{user._id}}</li>
+      <li>{{user.usename}}</li>
+      <li>{{user.passHash}}</li>
+      <li>
+        <img src="http://localhost:1337/static/images/user-аvatar-images/{{user.avatar}}" alt="">
+      </li>
+    </ul>
+  </li>
+</ul>

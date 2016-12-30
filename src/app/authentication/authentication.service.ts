@@ -16,6 +16,8 @@ export class AuthenticationService {
     public redirectUrl: string;
     public loggedIn = false;
 
+    private hasAdminRole = false;
+
     constructor(
         private _http: Http,
         private _router: Router) {
@@ -43,7 +45,12 @@ export class AuthenticationService {
     logout() {
         localStorage.removeItem(AuthToken);
         this.loggedIn = false;
+        this.hasAdminRole = false;
         this._router.navigate(['/home']);
+    }
+
+    isAdmin(): boolean {
+        return this.hasAdminRole;
     }
 
     isLoggedIn(): any {
@@ -63,14 +70,23 @@ export class AuthenticationService {
         return this._http.get(GetLoggedUserUrl, options)
             .map((res: Response) => {
                 let status = res.status;
-
                 let body = res.json();
                 if (status === 401) {
+                    console.log('401');
                     this.loggedIn = false;
+                    this.hasAdminRole = false;
                 } else {
                     this.loggedIn = true;
+                    if (body.roles.indexOf('admin') >= 0) {
+                        this.hasAdminRole = true;
+                    }
                 }
                 return { status: res.status, body: body };
+            },
+            (err: Response) => {
+                this.loggedIn = false;
+                this.hasAdminRole = false;
+                console.log(err);
             });
     }
 
@@ -83,10 +99,14 @@ export class AuthenticationService {
                 let status = res.status;
                 let body = res.json();
                 if (status !== 200) {
+                    console.log('verify token');
                     return false;
                 } else {
                     return true;
                 }
+            },
+            (err) => {
+                return false;
             })
 
     }
