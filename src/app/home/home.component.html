@@ -2,17 +2,17 @@
   Did you know that?
 </h1>
 <h3>
-  {{fact.title}}
+  {{randomFact.title}}
 </h3>
 <div >
-  <img *ngIf="!voted" class="fact-image-big" [src]='fact.img'>
+  <img *ngIf="!voted" class="fact-image-big" [src]='randomFact.img'>
   <br/>
   <br/>
   <br/>
   <div *ngIf="voted" class="knowledgeBar">
     <knowledge-pie-chart
-      [countYes]="fact.knowledgeCount.yes"
-      [countNo]="fact.knowledgeCount.no">
+      [countYes]="randomFact.knowledgeCount.yes"
+      [countNo]="randomFact.knowledgeCount.no">
     </knowledge-pie-chart>
   </div>
   <div class="knowledgeButtons">
