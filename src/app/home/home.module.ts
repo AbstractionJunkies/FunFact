@@ -10,12 +10,10 @@ import {HomeComponentService} from './home.service';
 import {HomeComponent} from './home.component';
 import {AuthenticationService} from "../authentication/authentication.service";
 import {ChartsModule} from 'ng2-charts/ng2-charts';
-import {KnowledgePieChartComponent} from "./chart-component/knowledge-pie-chart.components";
 
 @NgModule({
   declarations: [
     HomeComponent,
-    KnowledgePieChartComponent
   ],
   providers: [
     HomeComponentService,

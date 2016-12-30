@@ -16,7 +16,9 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 
 import { SearchPipe } from '../../pipes/searchPipe';
 import { SortPipe } from '../../pipes/sortPipe';
-
+import {CommonModule} from "@angular/common";
+import {BrowserModule} from "@angular/platform-browser";
+import {ChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { SortPipe } from '../../pipes/sortPipe';
     FactsListComponent,
     FactUploadComponent,
     SearchPipe,
-    SortPipe
+    SortPipe,
   ],
   providers: [
     FactService,
@@ -38,7 +40,10 @@ import { SortPipe } from '../../pipes/sortPipe';
     Ng2UploaderModule,
     ReactiveFormsModule,
     InfiniteScrollModule,
-    ShareButtonsModule
+    ShareButtonsModule,
+    ChartsModule,
+    BrowserModule,
+    CommonModule
   ],
   exports: []
 })

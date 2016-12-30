@@ -12,11 +12,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing.module';
 
 import {HomeModule} from "./home/home.module";
+import {KnowledgePieChartComponent} from "./home/chart-component/knowledge-pie-chart.components";
 
 @NgModule({
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    KnowledgePieChartComponent
   ],
   imports: [
     BrowserModule,
