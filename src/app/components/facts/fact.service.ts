@@ -81,5 +81,4 @@ export class FactService {
 
         return this.http.post(`${this.host}api/users/user/${username}/favorites`, body, { headers: headers });
     }
-
 }

@@ -6,7 +6,10 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 import { Fact } from './fact';
 import { ShareButtonsModule } from 'ng2-sharebuttons';
 
+import { NotificationsService } from '../../../../node_modules/angular2-notifications';
+
 import 'rxjs/add/operator/switchMap';
+import { AdminService } from '../../admin/admin.service';
 
 @Component({
   templateUrl: './fact-detail.template.html',
@@ -48,7 +51,9 @@ export class FactDetailComponent implements OnInit {
   constructor(private factService: FactService,
     private route: ActivatedRoute,
     private location: Location,
-    private authService: AuthenticationService) {
+    private authService: AuthenticationService,
+    private adminService: AdminService,
+    private notification: NotificationsService) {
 
     this.fact = <Fact>{};
     this.factComments = [{}];
@@ -146,7 +151,14 @@ export class FactDetailComponent implements OnInit {
   }
 
   deleteFact(factId) {
-    console.log(factId);
+    this.adminService.deleteFact(factId)
+      .subscribe((res: any) => {
+        this.notification.success('', res)
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      });
   }
 }
 

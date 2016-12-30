@@ -17,7 +17,7 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
   ],
   declarations: [
     RegisterComponent,
-    LoginComponent,
+    LoginComponent
   ],
   providers: [AuthenticationService, NotificationsService],
   exports: [SimpleNotificationsModule]

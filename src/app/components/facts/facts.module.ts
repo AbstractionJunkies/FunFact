@@ -3,7 +3,6 @@ import { FactsListComponent } from './fact-list.component';
 import { FactUploadComponent } from './fact-upload.component';
 import { FactService } from './fact.service';
 import { FactDetailComponent } from './fact-detail.component';
-import { AuthenticationService } from '../../authentication/authentication.service';
 import { SharedModule } from '../../shared/shared.module';
 import { FactComponent } from './fact.component';
 import { CommentComponent } from './comment.component';
@@ -16,6 +15,8 @@ import { Ng2UploaderModule } from 'ng2-uploader';
 
 import { SearchPipe } from '../../pipes/searchPipe';
 import { SortPipe } from '../../pipes/sortPipe';
+import { AuthenticationModule } from '../../authentication/authentication.module';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { SortPipe } from '../../pipes/sortPipe';
     Ng2UploaderModule,
     ReactiveFormsModule,
     InfiniteScrollModule,
-    ShareButtonsModule
+    ShareButtonsModule,
+    AuthenticationModule
   ],
   exports: []
 })

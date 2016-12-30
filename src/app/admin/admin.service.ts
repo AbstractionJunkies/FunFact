@@ -8,9 +8,8 @@ const HomeUrl = 'http://localhost:1337/';
 @Injectable()
 export class AdminService {
 
-    constructor(private _http: Http, private auth: AuthenticationService) {
-
-    }
+    constructor(private _http: Http,
+        private auth: AuthenticationService) { }
 
     getAllUserInfo(): Observable<any> {
         let headers = this.auth.createAuthorizationHeader();
@@ -21,4 +20,31 @@ export class AdminService {
             });
     }
 
+    getDeletedFacts(): Observable<any> {
+        let headers = this.auth.createAuthorizationHeader();
+
+        return this._http.get(`${HomeUrl}api/admin/facts/deleted`, { headers: headers })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
+    }
+
+    deleteFact(factId): Observable<any> {
+        console.log(factId);
+        let headers = this.auth.createAuthorizationHeader();
+        let body = {
+            factId
+        }
+
+        return this._http.delete(`${HomeUrl}api/admin/facts/fact/${factId}`, { headers: headers, body: body });
+    }
+
+    restoreDeletedFact(factId): Observable<any> {
+        let headers = this.auth.createAuthorizationHeader();
+        let body = {
+            factId
+        }
+
+        return this._http.put(`${HomeUrl}api/admin/facts/fact/${factId}`, JSON.stringify(body), { headers: headers });
+    }
 }
