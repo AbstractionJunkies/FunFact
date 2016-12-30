@@ -38,6 +38,8 @@ export class FactDetailComponent implements OnInit {
   public factComments;
   public factCommentsToDisplay;
 
+  private ratingArr = [1, 2, 3, 4, 5]
+
   private factID;
   private ratedCount: number;
   private commentPage: number;
