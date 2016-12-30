@@ -17,7 +17,6 @@ export class UserService {
         private auth: AuthenticationService
     ) {
         this.avatarSubject = new Subject();
-
     }
 
     getUserFavorites(username) {
@@ -25,12 +24,6 @@ export class UserService {
 
         return this.http.get(`${this.host}api/users/user/${username}/favorites`, { headers: headers });
     }
-
-    // getUserAvatar(username) {
-    //     let headers = this.auth.createAuthorizationHeader();
-
-    //     return this.http.get(`${this.host}api/users/user/${username}/avatar`, { headers: headers });
-    // }
 
     setAvatar(avatar) {
         this.avatarSubject.next(avatar);
@@ -49,7 +42,6 @@ export class UserService {
                     let username = result.body.username;
                     console.log(result);
                     this.setAvatar(result.body.avatar);
-
                 },
                 (err) => {
                     console.log(err);
