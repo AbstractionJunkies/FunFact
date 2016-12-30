@@ -18,6 +18,9 @@ import { SortPipe } from '../../pipes/sortPipe';
 import { AuthenticationModule } from '../../authentication/authentication.module';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
+import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { ChartsModule } from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { AuthenticationService } from '../../authentication/authentication.servi
     FactsListComponent,
     FactUploadComponent,
     SearchPipe,
-    SortPipe
+    SortPipe,
   ],
   providers: [
     FactService,
@@ -40,7 +43,10 @@ import { AuthenticationService } from '../../authentication/authentication.servi
     ReactiveFormsModule,
     InfiniteScrollModule,
     ShareButtonsModule,
-    AuthenticationModule
+    AuthenticationModule,
+    ChartsModule,
+    BrowserModule,
+    CommonModule
   ],
   exports: []
 })

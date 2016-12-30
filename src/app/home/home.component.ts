@@ -13,14 +13,14 @@ import {Observable} from "rxjs";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public randomFact: Fact;
+  public fact: Fact;
   public voted:Boolean;
 
   title: string;
 
   constructor(private _homeService: HomeComponentService) {
-    this.randomFact = <Fact>{};
-    this.randomFact.knowledgeCount = {
+    this.fact = <Fact>{};
+    this.fact.knowledgeCount = {
       yes: 0,
       no: 0
     };
@@ -29,16 +29,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this._homeService.getHome()
       .subscribe((res: any) => {
-        this.randomFact = res.body;
+        this.fact = res.body;
       });
 
     this.voted = false;
   }
 
   onYesClick(): void {
-    this._homeService.voteYes(this.randomFact._id, 'yes')
+    this._homeService.voteYes(this.fact._id, 'yes')
       .subscribe((res: any) => {
-          this.randomFact.knowledgeCount.yes += 1;
+          this.fact.knowledgeCount.yes += 1;
           this.voted = true;
         },
         (err: any) => {
@@ -47,9 +47,9 @@ export class HomeComponent implements OnInit {
   }
 
   onNoClick() {
-    this._homeService.voteNo(this.randomFact._id, 'no')
+    this._homeService.voteNo(this.fact._id, 'no')
       .subscribe((res: any) => {
-          this.randomFact.knowledgeCount.no += 1;
+          this.fact.knowledgeCount.no += 1;
           console.log(res);
           this.voted = true;
         },
