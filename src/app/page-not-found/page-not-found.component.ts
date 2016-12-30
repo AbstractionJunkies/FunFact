@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+const homePageUrl = 'http://localhost:4200/#/home';
 
 @Component({
   selector: 'app-page-not-found',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+
+  onButtonClick() {
+    window.location.replace(homePageUrl);
   }
 
 }

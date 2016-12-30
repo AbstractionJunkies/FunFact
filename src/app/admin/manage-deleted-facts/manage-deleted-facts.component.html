@@ -1,0 +1,27 @@
+<section class="text-center">
+  <h1>Delete facts</h1>
+  <table class="deleted-facts">
+    <thead>
+      <tr>
+        <th>Fact ID</th>
+        <th>Fact Title</th>
+        <th>File Uploader</th>
+        <th>File Category </th>
+        <th>Restore?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fact of deletedFacts">
+        <td>{{fact._id}}</td>
+        <td>
+          <img src={{fact.img}} alt="" class="deleted-img-thumbnail">
+        </td>
+        <td>{{fact.title}}</td>
+        <td>{{fact.uploader}}</td>
+        <td>{{fact.category}}</td>
+        <td> <button class="btn btn-danger" (click)="restoreImage(fact._id)"> Restore </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

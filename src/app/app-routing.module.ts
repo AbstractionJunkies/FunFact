@@ -13,10 +13,12 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { AuthGuard } from './guards/auth-guard.service';
 import { AdminComponent } from './admin/admin.component';
 import { AdminGuard } from './guards/admin-guard.service';
+import { ManageDeletedFactsComponent } from './admin/manage-deleted-facts/manage-deleted-facts.component';
 
 const routes: Routes = [
     { path: 'facts/all', component: FactsListComponent },
     { path: 'admin/users', component: AdminComponent, canActivate: [AdminGuard] },
+    { path: 'admin/facts/deleted', component: ManageDeletedFactsComponent },
     { path: 'home', component: HomeComponent },
     { path: 'upload', component: FactUploadComponent, canActivate: [AuthGuard] },
     { path: 'facts/fact/:id', component: FactDetailComponent },

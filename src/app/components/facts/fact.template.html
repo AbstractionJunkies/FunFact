@@ -15,8 +15,12 @@
                      [stumbleUpOn]="false"
       ></share-buttons>
     </div>
-    <span class="glyphicon glyphicon-user"></span><span> {{uploader}}</span>
-    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span><span> {{commentsCount}}</span>
-    <span class="glyphicon glyphicon-tag"></span><span> {{category}}</span>
+    <div class="info-icons">
+      <span> {{uploader}}</span><span class="glyphicon glyphicon-user"></span>
+      <br/>
+      <span> {{commentsCount}}</span> <span class="glyphicon glyphicon-comment" aria-hidden="true">   </span>
+      <br/>
+      <span> {{category}}</span><span class="glyphicon glyphicon-tag"></span>
+    </div>
   </div>
 </div>
