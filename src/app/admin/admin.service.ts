@@ -36,7 +36,10 @@ export class AdminService {
             factId
         }
 
-        return this._http.delete(`${HomeUrl}api/admin/facts/fact/${factId}`, { headers: headers, body: body });
+        return this._http.delete(`${HomeUrl}api/admin/facts/fact/${factId}`, { headers: headers, body: body })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
     }
 
     restoreDeletedFact(factId): Observable<any> {
@@ -46,5 +49,14 @@ export class AdminService {
         }
 
         return this._http.put(`${HomeUrl}api/admin/facts/fact/${factId}`, JSON.stringify(body), { headers: headers });
+    }
+
+    toggleBlockedUsers(userId): Observable<any> {
+        let headers = this.auth.createAuthorizationHeader();
+
+        return this._http.put(`${HomeUrl}api/admin/users/user/${userId}`, '', { headers: headers })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
     }
 }

@@ -1,0 +1,27 @@
+<table>
+  <thead>
+    <tr>
+      <th>Avatar</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>BlockUser</th>
+      <th>MakeAdmin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of usersInfo">
+      <td>
+        <img src="http://localhost:1337/static/images/user-аvatar-images/{{user.avatar}}" alt="" class="user-avatar-admin-page">
+      </td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button *ngIf="!user.isBlocked" class="btn btn-danger" (click)='toggleBlocUser(user._id)'>Block user</button>
+        <button *ngIf="user.isBlocked" class="btn btn-danger" (click)='toggleBlocUser(user._id)'>Unblock user</button>
+      </td>
+      <td>
+        <button class="btn btn-danger">Make Admin</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
