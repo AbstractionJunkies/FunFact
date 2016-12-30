@@ -1,7 +1,8 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
-import {Router} from '@angular/router';
-import {Fact} from './fact';
-import {FactService} from './fact.service';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
+import { Fact } from './fact';
+import { FactService } from './fact.service';
+import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
   selector: '[fact-selector]',
@@ -20,9 +21,8 @@ export class FactComponent {
   private category: string;
   private comments: [string];
 
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router,
+    private auth: AuthenticationService) { }
 
   @Input('fact') set fact(fact: Fact) {
     this.id = fact._id;

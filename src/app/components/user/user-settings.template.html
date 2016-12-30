@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <form [formGroup]="userSettingsToUpdate" #userSettingsForm="ngForm" class="container text-center" (ngSubmit)="updateSettings(); userSettingsForm.reset()">     
+    <form [formGroup]="userSettingsToUpdate" #userSettingsForm="ngForm" class="container text-center" (ngSubmit)="updateSettings(); userSettingsForm.reset()">
         <div class="form-group">
             <label for="newPassword">Enter new password</label>
             <input name="newPassword" type="password" class="form-control" formControlName="newPassword">
@@ -14,7 +14,7 @@
             <input name="currentPassword" type="password" class="form-control" formControlName="currentPassword">
             <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['currentPassword'].valid && userSettingsToUpdate.controls['currentPassword'].touched">Please enter your password in order to change your user setting</span>
         </div>
-        <button class="btn btn-default regbutton">Register</button>
+        <button class="btn btn-default ">Update user info</button>
 
     </form>
     <simple-notifications [options]="notificationOptions "></simple-notifications>

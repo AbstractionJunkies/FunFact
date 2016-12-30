@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import {HomeModule} from "./home/home.module";
 import {KnowledgePieChartComponent} from "./home/chart-component/knowledge-pie-chart.components";
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {KnowledgePieChartComponent} from "./home/chart-component/knowledge-pie-c
     HomeModule,
     AuthenticationModule,
     UserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [

@@ -38,6 +38,8 @@ export class FactDetailComponent implements OnInit {
   public factComments;
   public factCommentsToDisplay;
 
+  private ratingArr = [1, 2, 3, 4, 5]
+
   private factID;
   private ratedCount: number;
   private commentPage: number;
@@ -72,6 +74,9 @@ export class FactDetailComponent implements OnInit {
         this.factComments = result;
         this.commentPage = 0;
         this.factCommentsToDisplay = this.getPagedComments(this.commentPage);
+      },
+      (err) => {
+        console.log(err);
       });
 
     this.factService.getComment()
@@ -138,6 +143,10 @@ export class FactDetailComponent implements OnInit {
   standby() {
     //TODO: download the image!
     this.fact.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
+  }
+
+  deleteFact(factId) {
+    console.log(factId);
   }
 }
 

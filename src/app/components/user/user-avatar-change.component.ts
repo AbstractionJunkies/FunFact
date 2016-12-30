@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 import { UserService } from './user.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms';
+import { NotificationsService } from '../../../../node_modules/angular2-notifications';
 
 
 @Component({
@@ -32,13 +33,14 @@ export class UserAvatarSettings implements OnInit {
     constructor(
         private authService: AuthenticationService,
         private userService: UserService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private notification: NotificationsService
     ) { }
 
     ngOnInit(): void {
         this.options.authToken = JSON.stringify(localStorage.getItem('auth_token'));
         this.options.authTokenPrefix = '';
-        
+
         this.authService.getLoggedUser()
             .subscribe(res => {
                 let currentLoggedUser = res.body.username;
@@ -56,7 +58,14 @@ export class UserAvatarSettings implements OnInit {
 
     handleUpload(data): void {
         if (data && data.response) {
-            this.userService.setAvatar(data.response);
+            if (data.status === 200) {
+                this.userService.setAvatar(data.response);
+                this.userAvatar = this.imgUrl + data.response;
+
+                this.notification.success('Success', 'Avatar updated');
+            } else {
+                this.notification.error('Error', 'Password is not correct')
+            }
         }
     }
 

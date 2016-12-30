@@ -7,8 +7,10 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'fact-comment-selector',
   template: `
-    <textarea #area [(ngModel)]="commentValue"></textarea>
-    <input type="button" (click)="save(area.value, factId)" value="save">
+  <section *ngIf="_authService.isLoggedIn()" class="comment-section">
+    <textarea #area [(ngModel)]="commentValue" class="form-control"></textarea>
+    <input type="button" (click)="save(area.value, factId)" value="Publish comment" class="btn btn-default">
+  </section>
   `
 })
 export class CommentComponent implements OnInit {

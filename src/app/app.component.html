@@ -5,6 +5,12 @@
         <li>
           <a routerLink="/home" routerLinkActive="active">Home</a>
         </li>
+        <li>
+          <a routerLink="/facts/all" routerLinkActive="active">All facts</a>
+        </li>
+        <li *ngIf="_authService.isLoggedIn() && _authService.isAdmin()">
+          <a routerLink="/admin/users" routerLinkActive="active">Admin</a>
+        </li>
         <li *ngIf="_authService.isLoggedIn()">
           <a routerLink="/upload" routerLinkActive="active">Upload</a>
         </li>

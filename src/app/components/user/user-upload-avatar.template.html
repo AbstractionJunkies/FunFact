@@ -4,12 +4,14 @@
         <div class="form-group">
             <label for="">Pick your avatar</label>
             <input type="file" #file (onUpload)="handleUpload($event)" [events]="events" ngFileSelect [options]="options">
-            <input type="button" value="Change avatar" (click)="startUpload(file.value)" class="form-control" />
         </div>
         <div class="form-group" [ngClass]="{'has-error':!userSettingsToUpdate.controls['currentPassword'].valid}">
             <label for="currentPassword">Enter your current password</label>
             <input name="currentPassword" type="password" class="form-control" formControlName="currentPassword">
             <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['currentPassword'].valid && userSettingsToUpdate.controls['currentPassword'].touched">Please enter your password in order to change your user setting</span>
+        </div>
+        <div class="form-group">
+            <input type="button" value="Change avatar" (click)="startUpload(file.value)" class="form-control" />
         </div>
     </form>
     <simple-notifications [options]="notificationOptions "></simple-notifications>
