@@ -1,6 +1,6 @@
 <section class="wrapper text-center">
     <div class="fact" [@factPanel]="'animate'" class="text-center">
-        <h1>TITLE: {{fact.title}}</h1>
+        <h1>{{fact.title}}</h1>
         <img class="fact-image-big" [src]='fact.img' (error)='standby($event)'>
         <div>
             <span class="glyphicon glyphicon-user">{{fact.uploader}}</span>

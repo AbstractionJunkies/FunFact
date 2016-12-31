@@ -1,0 +1,20 @@
+.row{
+  padding: 5px;
+  text-align: left;
+}
+.row div{
+  float: none;
+  text-align: center;
+  margin: auto;
+}
+.reg-button button{
+  font-size: 17px;
+  width: 60%;
+  height: 40px;
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+  color: dodgerblue;
+  background-color: white;
+}
+.register-form{
+}

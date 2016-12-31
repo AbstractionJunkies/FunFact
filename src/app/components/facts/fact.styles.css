@@ -10,12 +10,13 @@
   width: 100%;
 }
 
-.fact h1 {
+.fact h2 {
   color: dodgerblue;
   text-align: left;
+  margin-left: 20px;
 }
 
-.fact h1:hover {
+.fact h2:hover {
   color: orangered;
   text-decoration: underline;
 }

@@ -1,0 +1,29 @@
+form{
+  text-align: center;
+}
+form div{
+  width: 50%;
+  float: none;
+  margin: auto;
+  text-align: left;
+  margin-bottom: 20px;
+}
+.loginmodal-container{
+  text-align: center;
+}
+
+div label{
+  color: dodgerblue;
+}
+.login-button{
+  text-align: right !important;
+}
+.login-button button{
+  font-size: 17px;
+  width: 60%;
+  height: 40px;
+  border: 1px solid dodgerblue;
+  border-radius: 5px;
+  color: dodgerblue;
+  background-color: white;
+}

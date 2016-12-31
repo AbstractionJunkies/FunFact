@@ -1,18 +1,18 @@
 <div class="modal-dialog">
     <div class="loginmodal-container">
-        <h1>Login to Your Account</h1><br>
+        <h1>...you can log in your account, or create one!</h1><br>
         <form [formGroup]="userToLogin" #loginForm="ngForm" class="login-form" (ngSubmit)="login()">
             <div class="col-md-4 col-sm-4 col-lg-4" [ngClass]="{'has-error':!userToLogin.controls['username'].valid}">
-                <label for="username ">Username</label>
-                <input name="username " class="form-control " type="text " formControlName="username">
+                <label for="username">Username</label>
+                <input id="username" name="username " class="form-control " type="text " formControlName="username">
                 <span class="text-danger" *ngIf="!userToLogin.controls['username'].valid && userToLogin.controls['username'].touched">Please enter you username</span>
             </div>
             <div class="col-md-4 col-sm-4 col-lg-4">
-                <label for="password ">password</label>
-                <input name="password" class="form-control " type="password" formControlName="password">
+                <label for="password">Password</label>
+                <input id="password" name="password" class="form-control " type="password" formControlName="password">
                 <span class="text-danger" *ngIf="!userToLogin.controls['password'].valid && userToLogin.controls['password'].touched">Please enter your password</span>
             </div>
-            <div class="col-md-4 col-sm-4 col-lg-4">
+            <div class="col-md-4 col-sm-4 col-lg-4 login-button">
                 <button class="btn btn-default login" [disabled]="!userToLogin.valid">Login</button>
             </div>
         </form>
