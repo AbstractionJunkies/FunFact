@@ -3,7 +3,13 @@
   width: 800px;
   padding: 20px;
 }
-
+#logo{
+  width: 110px;
+  height: 52px;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+}
 #content {
   padding: 30px;
   width: 1000px;
@@ -26,7 +32,7 @@
 }
 .navbar-container{
   width: 1000px;
-  height: 55px;
+  height: 52px;
   position: relative;
   margin: auto;
 }
