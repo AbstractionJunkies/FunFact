@@ -1,17 +1,21 @@
 <div id="search" class="input-group">
   <input type='text' [(ngModel)]='searchPattern' class="search-bar form-control" placeholder="Search for..."/>
-  <label>
-    Sort by:
-    <select class="btn btn-secondary search-selector" [(ngModel)]='sortPattern'>
-      <option selected="selected" value="title">Title</option>
-      <option value="uploader">Uploader</option>
-      <option value="category">Category</option>
-      <option value="rating">Rating</option>
-    </select>
-  </label>
-  <div class="btn-group" role="group" >
-    <input type="radio" [(ngModel)]='orderPattern' name="order" id="ascending" value="Ascending"/><label for="ascending">Ascending</label>
-    <input type="radio" [(ngModel)]='orderPattern' name="order" id="descenging" value="Descending"/><label for="descenging">Descending</label>
+  <div class="label-wrapper">
+    <label for="sort-by-selector">
+      Sort by:
+    </label></div>
+
+  <select id="sort-by-selector" class="btn btn-secondary search-selector" [(ngModel)]='sortPattern'>
+    <option selected="selected" value="title">Title</option>
+    <option value="uploader">Uploader</option>
+    <option value="category">Category</option>
+    <option value="rating">Rating</option>
+  </select>
+  <div class="btn-group" role="group">
+    <input type="radio" [(ngModel)]='orderPattern' name="order" id="ascending" value="Ascending"/><label
+    for="ascending">Ascending</label>
+    <input type="radio" [(ngModel)]='orderPattern' name="order" id="descenging" value="Descending"/><label
+    for="descenging">Descending</label>
   </div>
 </div>
 <ul class="facts-list" infinite-scroll [scrollWindow]="true" (scrolled)="onScrollDown()">

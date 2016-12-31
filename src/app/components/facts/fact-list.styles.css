@@ -7,12 +7,14 @@ h1{
   text-align: center;
   display: inline-block;
   width: 500px;
+  padding: 0 ;
 }
 .facts-list li{
   width: 100%;
 }
 .input-group{
   text-align: center;
+  width: 850px;
 }
 #search{
   border-radius: 5px;
@@ -28,7 +30,7 @@ ul{
   list-style-type: none;
 }
 .search-bar{
-  width: 69%;
+  width: 64%;
   display: inline-block;
   border: 1px solid lightgray;
   border-radius: 5px;
@@ -38,4 +40,25 @@ ul{
 .search-selector{
   width: 29%;
   display: inline-block;
+}
+.label-wrapper{
+  display: inline-block;
+  padding: 5px;
+  color: white;
+  background-color: dodgerblue;
+  height: 34px;
+  vertical-align: top;
+}
+.label-wrapper label{
+  vertical-align: middle;
+  margin: auto;
+  line-height: 2;
+}
+#sort-by-selector{
+  vertical-align: top;
+  display: inline-block;
+  width: 20%;
+  height: 34px;
+  border: 1px solid lightgray;
+  border-radius: 0px 5px 5px 0px;
 }
