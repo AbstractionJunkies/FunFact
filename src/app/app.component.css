@@ -13,7 +13,12 @@
   /*border: 2px solid dodgerblue;*/
   box-shadow: 0px 0px 10px grey;
 }
-
+.left{
+  float: none;
+  display: inline-block;
+  position: absolute;
+  left: 25px;
+}
 .navbar {
   margin: 0;
   color: white;
@@ -21,6 +26,8 @@
 }
 .navbar-container{
   width: 1000px;
+  height: 55px;
+  position: relative;
   margin: auto;
 }
 
@@ -45,6 +52,11 @@ li img{
   -o-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
 }
+.right{
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+}
 
 .navbar a:hover:after {
   content: '';
@@ -62,3 +74,12 @@ img {
   height: 40px;
   cursor: pointer;
 }
+
+#header-image{
+  width: 1104px;
+  height: auto;
+  position: relative;
+  left: -82px;
+}
+
+

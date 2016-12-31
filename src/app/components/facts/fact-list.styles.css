@@ -1,4 +1,8 @@
 
+h1{
+  width: 100%;
+  background-color: dodgerblue;
+}
 .facts-list{
   text-align: center;
   display: inline-block;
@@ -7,14 +11,31 @@
 .facts-list li{
   width: 100%;
 }
-
+.input-group{
+  text-align: center;
+}
 #search{
   border-radius: 5px;
   width: 50%;
   margin: 0px auto;
   float: none;
 }
+.btn-group{
+  display: block;
+}
 
 ul{
   list-style-type: none;
+}
+.search-bar{
+  width: 69%;
+  display: inline-block;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  float:none;
+  margin-bottom: 5px;
+}
+.search-selector{
+  width: 29%;
+  display: inline-block;
 }

@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-default navbar-responsive-collapse">
     <div class="navbar-container">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav left">
         <li>
           <a routerLink="/home" routerLinkActive="active">Home</a>
         </li>
@@ -18,7 +18,7 @@
           <a routerLink="/upload" routerLinkActive="active">Upload</a>
         </li>
       </ul>
-      <ul class=" nav navbar-nav pull-right">
+      <ul class=" nav navbar-nav right">
         <li *ngIf="!_authService.isLoggedIn()">
           <a routerLink="/register" routerLinkActive="active">Register</a>
         </li>
@@ -38,5 +38,7 @@
 
 </header>
 <div id="content" class="facts-container">
+
+  <img id="header-image" src="../style-utils/HEADER%20BACKGORUND.png"/>
   <router-outlet></router-outlet>
 </div>
