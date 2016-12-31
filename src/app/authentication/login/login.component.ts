@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.body.isUserBlocked) {
           this._notification.error('', 'Your account has been blocked!');
+          //TODO add the you have been blocked page
           this._router.navigate(['/alabala']);
           return;
         }

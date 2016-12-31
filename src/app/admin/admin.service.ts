@@ -30,13 +30,9 @@ export class AdminService {
     }
 
     deleteFact(factId): Observable<any> {
-        console.log(factId);
         let headers = this.auth.createAuthorizationHeader();
-        let body = {
-            factId
-        }
 
-        return this._http.delete(`${HomeUrl}api/admin/facts/fact/${factId}`, { headers: headers, body: body })
+        return this._http.delete(`${HomeUrl}api/admin/facts/fact/${factId}`, { headers: headers })
             .map((res: Response) => {
                 return { status: res.status, body: res.json() }
             });
@@ -44,11 +40,8 @@ export class AdminService {
 
     restoreDeletedFact(factId): Observable<any> {
         let headers = this.auth.createAuthorizationHeader();
-        let body = {
-            factId
-        }
 
-        return this._http.put(`${HomeUrl}api/admin/facts/fact/${factId}`, JSON.stringify(body), { headers: headers });
+        return this._http.put(`${HomeUrl}api/admin/facts/fact/${factId}`, '', { headers: headers });
     }
 
     toggleBlockedUsers(userId): Observable<any> {
