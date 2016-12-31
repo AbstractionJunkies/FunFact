@@ -19,9 +19,10 @@
         <td>{{fact.title}}</td>
         <td>{{fact.uploader}}</td>
         <td>{{fact.category}}</td>
-        <td> <button class="btn btn-danger" (click)="restoreImage(fact._id)"> Restore </button>
+        <td> <button class="btn btn-danger" (click)="restoreImage(fact._id)" [disabled]="!fact.isDeleted"> Restore </button>
         </td>
       </tr>
     </tbody>
   </table>
 </section>
+<simple-notifications [options]="notificationOptions "></simple-notifications>

@@ -30,21 +30,35 @@ export class AdminService {
     }
 
     deleteFact(factId): Observable<any> {
-        console.log(factId);
         let headers = this.auth.createAuthorizationHeader();
-        let body = {
-            factId
-        }
 
-        return this._http.delete(`${HomeUrl}api/admin/facts/fact/${factId}`, { headers: headers, body: body });
+        return this._http.delete(`${HomeUrl}api/admin/facts/fact/${factId}`, { headers: headers })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
     }
 
     restoreDeletedFact(factId): Observable<any> {
         let headers = this.auth.createAuthorizationHeader();
-        let body = {
-            factId
-        }
 
-        return this._http.put(`${HomeUrl}api/admin/facts/fact/${factId}`, JSON.stringify(body), { headers: headers });
+        return this._http.put(`${HomeUrl}api/admin/facts/fact/${factId}`, '', { headers: headers });
+    }
+
+    toggleBlockedUsers(userId): Observable<any> {
+        let headers = this.auth.createAuthorizationHeader();
+
+        return this._http.put(`${HomeUrl}api/admin/users/user/${userId}`, '', { headers: headers })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
+    }
+
+    makeUserAdmin(userId): Observable<any> {
+        let headers = this.auth.createAuthorizationHeader();
+
+        return this._http.post(`${HomeUrl}api/admin/users/makeadmin/${userId}`, '', { headers: headers })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
     }
 }

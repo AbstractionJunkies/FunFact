@@ -17,6 +17,7 @@ export class AuthenticationService {
     public loggedIn = false;
 
     private hasAdminRole = false;
+    private isUserBlocked = false;
 
     constructor(
         private _http: Http,
@@ -35,6 +36,11 @@ export class AuthenticationService {
             .map((res: Response) => {
                 let body = res.json();
                 let token = body.token;
+                console.log('boody', body);
+                if (body.isUserBlocked) {
+                    this.isUserBlocked = true;
+                    return { status: res.status, body: body }
+                }
 
                 localStorage.setItem(AuthToken, token);
                 this.loggedIn = true;
@@ -51,6 +57,10 @@ export class AuthenticationService {
 
     isAdmin(): boolean {
         return this.hasAdminRole;
+    }
+
+    isBlocked(): boolean {
+        return this.isUserBlocked;
     }
 
     isLoggedIn(): any {
@@ -71,8 +81,8 @@ export class AuthenticationService {
             .map((res: Response) => {
                 let status = res.status;
                 let body = res.json();
+                
                 if (status === 401) {
-                    console.log('401');
                     this.loggedIn = false;
                     this.hasAdminRole = false;
                 } else {
@@ -81,6 +91,9 @@ export class AuthenticationService {
                         this.hasAdminRole = true;
                     }
                 }
+
+                this.isUserBlocked = body.isBlocked;
+
                 return { status: res.status, body: body };
             },
             (err: Response) => {
@@ -98,8 +111,9 @@ export class AuthenticationService {
             .map((res: Response) => {
                 let status = res.status;
                 let body = res.json();
+                this.isUserBlocked = body.isBlocked;
+
                 if (status !== 200) {
-                    console.log('verify token');
                     return false;
                 } else {
                     return true;
