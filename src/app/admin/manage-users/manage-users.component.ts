@@ -26,4 +26,11 @@ export class ManageUsersComponent implements OnInit {
         console.log(res);
       })
   }
+
+  makeUserAdmin(userId) {
+    this._adminService.makeUserAdmin(userId)
+      .subscribe((res: any) => {
+        console.log(res);
+      })
+  }
 }

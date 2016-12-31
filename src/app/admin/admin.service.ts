@@ -59,4 +59,13 @@ export class AdminService {
                 return { status: res.status, body: res.json() }
             });
     }
+
+    makeUserAdmin(userId): Observable<any> {
+        let headers = this.auth.createAuthorizationHeader();
+
+        return this._http.post(`${HomeUrl}api/admin/users/makeadmin/${userId}`, '', { headers: headers })
+            .map((res: Response) => {
+                return { status: res.status, body: res.json() }
+            });
+    }
 }

@@ -4,7 +4,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class BlockedUserGuard implements CanActivate {
 
   constructor(private _authService: AuthenticationService,
     private _router: Router) { }
@@ -15,12 +15,14 @@ export class AuthGuard implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    if (this._authService.isLoggedIn() && !this._authService.isBlocked()) {
+    console.log('router');
+
+    if (!this._authService.isBlocked()) {
       return true;
     }
 
     this._authService.redirectUrl = url;
-    this._router.navigate(['/login']);
+    this._router.navigate(['/alabala']);
     return false;
   }
 }

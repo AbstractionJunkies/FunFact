@@ -20,7 +20,7 @@
         <button *ngIf="user.isBlocked" class="btn btn-danger" (click)='toggleBlocUser(user._id)'>Unblock user</button>
       </td>
       <td>
-        <button class="btn btn-danger">Make Admin</button>
+        <button class="btn btn-danger" (click)='makeUserAdmin(user._id)'>Make Admin</button>
       </td>
     </tr>
   </tbody>

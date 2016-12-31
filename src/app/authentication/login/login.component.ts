@@ -34,8 +34,13 @@ export class LoginComponent implements OnInit {
   login(): void {
     this._authService.login(this.userToLogin.value)
       .subscribe((res: any) => {
-        this._notification.success('', res.body.message);
+        if (res.body.isUserBlocked) {
+          this._notification.error('', 'Your account has been blocked!');
+          this._router.navigate(['/alabala']);
+          return;
+        }
 
+        this._notification.success('', res.body.message);
         this._userService.loadAvatar();
         this._router.navigate(['/home']);
       },

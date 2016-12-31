@@ -40,7 +40,6 @@ export class UserService {
             this.auth.getLoggedUser()
                 .subscribe(result => {
                     let username = result.body.username;
-                    console.log(result);
                     this.setAvatar(result.body.avatar);
                 },
                 (err) => {
