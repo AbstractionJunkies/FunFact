@@ -11,7 +11,7 @@
             <span class="text-danger" *ngIf="!userSettingsToUpdate.controls['currentPassword'].valid && userSettingsToUpdate.controls['currentPassword'].touched">Please enter your password in order to change your user setting</span>
         </div>
         <div class="form-group">
-            <input type="button" value="Change avatar" (click)="startUpload(file.value)" class="form-control" />
+            <input type="button" value="Change avatar" (click)="startUpload(file.value)" class="form-control button" />
         </div>
     </form>
     <simple-notifications [options]="notificationOptions "></simple-notifications>

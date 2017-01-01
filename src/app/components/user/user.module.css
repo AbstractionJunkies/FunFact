@@ -1,10 +1,13 @@
-.button {
+ul{
+    list-style-type: none;
+}
+input {
     background-color: white;
     border: 3px solid dodgerblue;
     height: 50px;
     font-weight: bold;
     cursor: pointer;
 }
-.button:hover{
+input:hover{
     background-color: yellow;
 }

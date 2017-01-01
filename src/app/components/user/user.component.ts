@@ -3,32 +3,8 @@ import { UserService } from './user.service';
 import { AuthenticationService } from '../../authentication/authentication.service';
 
 @Component({
-    template: `
-        <input type="button" value="favorites" (click)="showFavorites()" class="form-control">
-        <input type="button" value="private settings" (click)="showSettings()" class="form-control">
-        <input type="button" value="change avatar" (click)="showAvatarUpload()" class="form-control">
-        <ul *ngIf="displayFavorites">
-            <li *ngFor="let favorite of userFavorites">
-            <h1>{{favorite.title}}</h1>
-            <img [src]='favorite.img' [style.width.px]='600' >
-            <div>
-                <span class="glyphicon glyphicon-tag">{{favorite.category}}</span>
-                <span class="glyphicon glyphicon-star">{{favorite.rating}}</span> 
-            </div>
-            </li>
-        </ul>
-        <div *ngIf="displaySettings">
-            <user-settings-selector></user-settings-selector>
-        </div>
-        <div *ngIf="displayAvatarSettings">
-            <avatar-upload-selector></avatar-upload-selector>
-        </div>
-    `,
-    styles: [`
-        ul{
-            list-style-type: none;
-        }
-    `]
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.module.css']
 })
 export class UserComponent implements OnInit {
 
