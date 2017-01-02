@@ -1,12 +1,25 @@
 h1{
   font-weight: bold;
 }
+div{
+  text-align: center;
+  margin: auto auto 20px;
+}
+img{
+  display: block;
+  float: none;
+  text-align: center;
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
 button{
   width: 200px;
   height: 75px;
-  color: white;
-  background-color: dodgerblue;
-  border: 1px solid dodgerblue;
+  color: dodgerblue;
+  background-color: white;
+  border: 2px solid dodgerblue;
   border-radius: 5px;
   font-size: 21px;
+  font-weight: bold;
 }
