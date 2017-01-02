@@ -3,7 +3,7 @@ import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs';
 import {AuthenticationService} from "../authentication/authentication.service";
 
-const HomeUrl = 'http://localhost:1337/';
+const HomeUrl = 'https://fun-fact-api.herokuapp.com/';
 
 @Injectable()
 export class HomeComponentService {

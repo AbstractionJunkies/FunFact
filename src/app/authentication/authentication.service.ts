@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 
 import 'rxjs/add/operator/map';
 
-const RegisterUrl: string = 'http://localhost:1337/api/auth/register';
-const LoginUrl: string = 'http://localhost:1337/api/auth/login';
-const GetLoggedUserUrl: string = 'http://localhost:1337/api/auth/getLoggedUser';
+const RegisterUrl: string = 'https://fun-fact-api.herokuapp.com/api/auth/register';
+const LoginUrl: string = 'https://fun-fact-api.herokuapp.com/api/auth/login';
+const GetLoggedUserUrl: string = 'https://fun-fact-api.herokuapp.com/api/auth/getLoggedUser';
 const AuthToken: string = 'auth_token';
 
 @Injectable()

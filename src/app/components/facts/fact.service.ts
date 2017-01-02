@@ -9,7 +9,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class FactService {
 
-    private host: string = 'http://localhost:1337/';
+    private host: string = 'https://fun-fact-api.herokuapp.com/';
     private commentSubject;
 
     constructor(private http: Http,
