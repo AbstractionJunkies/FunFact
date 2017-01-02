@@ -25,4 +25,15 @@ div button{
   color: #FF0000;
   border-color: #FF0000;
 }
+#new-random-fact-button{
+  color: dodgerblue;
+  background-color: white;
+  border-color: dodgerblue;
+}
+#more-facts-button{
+  background-color: dodgerblue;
+  color: white;
+  border-color: dodgerblue;
+}
+
 

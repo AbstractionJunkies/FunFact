@@ -63,4 +63,11 @@ export class HomeComponent implements OnInit {
     //TODO: download the image!
     this.randomFact.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
   }
+
+  loadMoreFacts(){
+    window.location.href = "http://localhost:4200/#/home"
+  }
+  showAllFacts() {
+    window.location.href = "http://localhost:4200/#/facts/all";
+  }
 }
