@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, trigger, state, style, transition, animate, keyframes } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { Location } from '@angular/common';
-import { FactService } from './fact.service';
-import { AuthenticationService } from '../../authentication/authentication.service';
-import { Fact } from './fact';
-import { ShareButtonsModule } from 'ng2-sharebuttons';
+import {Component, Input, OnInit, trigger, state, style, transition, animate, keyframes} from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
+import {Location} from '@angular/common';
+import {FactService} from './fact.service';
+import {AuthenticationService} from '../../authentication/authentication.service';
+import {Fact} from './fact';
+import {ShareButtonsModule} from 'ng2-sharebuttons';
 
-import { NotificationsService } from '../../../../node_modules/angular2-notifications';
+import {NotificationsService} from '../../../../node_modules/angular2-notifications';
 
 import 'rxjs/add/operator/switchMap';
-import { AdminService } from '../../admin/admin.service';
+import {AdminService} from '../../admin/admin.service';
 
 @Component({
   templateUrl: './fact-detail.template.html',
@@ -18,18 +18,18 @@ import { AdminService } from '../../admin/admin.service';
     trigger('factPanel', [
       transition('void => *', [
         animate(600, keyframes([
-          style({ oppacity: 0, transform: 'translateX(-200px)', offset: 0 }),
-          style({ oppacity: 1, transform: 'translateX(-25px)', offset: .75 }),
-          style({ oppacity: 1, transform: 'translateX(0)', offset: 1 }),
+          style({oppacity: 0, transform: 'translateX(-200px)', offset: 0}),
+          style({oppacity: 1, transform: 'translateX(-25px)', offset: .75}),
+          style({oppacity: 1, transform: 'translateX(0)', offset: 1}),
         ]))
       ])
     ]),
     trigger('factComments', [
       transition('void => *', [
         animate(600, keyframes([
-          style({ oppacity: 0, transform: 'translateX(200px)', offset: 0 }),
-          style({ oppacity: 1, transform: 'translateX(25px)', offset: .75 }),
-          style({ oppacity: 1, transform: 'translateX(0)', offset: 1 }),
+          style({oppacity: 0, transform: 'translateX(200px)', offset: 0}),
+          style({oppacity: 1, transform: 'translateX(25px)', offset: .75}),
+          style({oppacity: 1, transform: 'translateX(0)', offset: 1}),
         ]))
       ])
     ])
@@ -49,11 +49,11 @@ export class FactDetailComponent implements OnInit {
   private noMoreComments: boolean = false;
 
   constructor(private factService: FactService,
-    private route: ActivatedRoute,
-    private location: Location,
-    private authService: AuthenticationService,
-    private adminService: AdminService,
-    private notification: NotificationsService) {
+              private route: ActivatedRoute,
+              private location: Location,
+              private authService: AuthenticationService,
+              private adminService: AdminService,
+              private notification: NotificationsService) {
 
     this.fact = <Fact>{};
     this.factComments = [{}];
@@ -76,13 +76,13 @@ export class FactDetailComponent implements OnInit {
     this.factService.getFactComments(this.factID)
       .map(r => r.json())
       .subscribe((result: any) => {
-        this.factComments = result;
-        this.commentPage = 0;
-        this.factCommentsToDisplay = this.getPagedComments(this.commentPage);
-      },
-      (err) => {
-        console.log(err);
-      });
+          this.factComments = result;
+          this.commentPage = 0;
+          this.factCommentsToDisplay = this.getPagedComments(this.commentPage);
+        },
+        (err) => {
+          console.log(err);
+        });
 
     this.factService.getComment()
       .subscribe((comment) => {
@@ -104,15 +104,15 @@ export class FactDetailComponent implements OnInit {
   rateFact(factId, value): void {
     this.factService.rateFact(factId, value)
       .subscribe((res: any) => {
-        this.fact.rating = +res.body.rate;
-        this.ratedCount += 1;
-      },
-      (err: any) => {
-        console.log(err);
-      });
+          this.fact.rating = +res.body.rate;
+          this.ratedCount += 1;
+        },
+        (err: any) => {
+          console.log(err);
+        });
   }
 
-  addToFavorites(username, fact) {
+  addToFavorites(fact) {
     let factToAdd = {
       title: fact.title,
       category: fact.category,
@@ -153,12 +153,12 @@ export class FactDetailComponent implements OnInit {
   deleteFact(factId) {
     this.adminService.deleteFact(factId)
       .subscribe((res: any) => {
-        this.notification.success('', res)
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-      });
+          this.notification.success('', res)
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
+        });
   }
 }
 

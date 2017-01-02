@@ -1,46 +1,53 @@
 <section class="wrapper text-center">
-    <div class="fact" [@factPanel]="'animate'" class="text-center">
-        <h1>{{fact.title}}</h1>
-        <img class="fact-image-big" [src]='fact.img' (error)='standby($event)'>
-        <div>
-            <span class="glyphicon glyphicon-user">{{fact.uploader}}</span>
-            <span class="glyphicon glyphicon-tag">{{fact.category}}</span>
-        </div>
-        <input type="button" value="Back" (click)="goBack()" class="btn btn-default">
-        <input *ngIf="authService.isLoggedIn()" type="button" value="Add to favorites" (click)="addToFavorites(TODO-USERATUKA,fact)"
-            class="btn btn-default">
+  <div class="fact" [@factPanel]="'animate'" class="text-center">
+    <h1>{{fact.title}}</h1>
+    <img class="fact-image-big" [src]='fact.img' (error)='standby($event)'>
+    <div class="fact-icons">
+      <div>
+        <span>{{fact.uploader}}</span> <span class="glyphicon glyphicon-user"></span>
+      </div>
+      <div><span>{{fact.category}}</span><span class="glyphicon glyphicon-tag"></span>
+      </div>
     </div>
+    <div class="fact-buttons">
+      <input id="add-favourite-button" *ngIf="authService.isLoggedIn()" type="button" value="Add to favorites"
+             (click)="addToFavorites(fact)"
+             class="btn btn-default">
+      <input id="back-button" type="button" value="Back" (click)="goBack()" class="btn btn-default">
+    </div>
+  </div>
 
-    <div [@factComments]="'animate'">
-        <div>
-            <div id="rating">
-                <app-rating [rating]='fact.rating' (ratingClicked)='onRatingClicked($event)'>
-                </app-rating>
-                <span>Averate rating {{fact.rating | number : '1.2-2'}}</span>
-                <span>Total users voted: {{ratedCount}} </span>
-            </div>
-            <div *ngIf="authService.isLoggedIn()">
-                <select #factRating>
-                <option *ngFor="let rate of ratingArr" [ngValue]="rate">{{rate}}</option>
-            </select>
-                <button (click)="rateFact(fact._id,factRating.value)" class="btn btn-default">Rate</button>
-            </div>
-            <button *ngIf="authService.isLoggedIn() && authService.isAdmin()" (click)="deleteFact(fact._id)" class="btn btn-danger">DeleteFact</button>
-        </div>
-        <fact-comment-selector factId={{fact._id}}></fact-comment-selector>
-        <ul id="list-comments">
-            <li *ngFor="let comment of factCommentsToDisplay">
-                <div class="comment">
-                    <p>
-                        <span class="glyphicon glyphicon-user"> {{comment.username}}</span>
-                    </p>
-                    <div>
-                        {{comment.comment}}
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <button *ngIf="!noMoreComments" (click)='loadMoreComments()' class="btn btn-default">Load More</button>
-        <span *ngIf="noMoreComments"> no more comments</span>
+  <div [@factComments]="'animate'">
+    <div class="rating-wrapper">
+      <div id="rating">
+        <app-rating [rating]='fact.rating' (ratingClicked)='onRatingClicked($event)'>
+        </app-rating>
+        <span>Average  rating {{fact.rating | number : '1.2-2'}}</span>
+        <br/>
+        <span>Total users voted: {{ratedCount}} </span>
+      </div>
+      <div *ngIf="authService.isLoggedIn()" class="rate-value-wrapper">
+        <select #factRating class="btn btn-secondary">
+          <option *ngFor="let rate of ratingArr" [ngValue]="rate">{{rate}}</option>
+        </select>
+        <button (click)="rateFact(fact._id,factRating.value)" class="btn btn-default btn-send-rate">Rate</button>
+      </div>
+      <button *ngIf="authService.isLoggedIn() && authService.isAdmin()" (click)="deleteFact(fact._id)"
+              class="btn btn-danger">DeleteFact
+      </button>
     </div>
+    <fact-comment-selector factId={{fact._id}}></fact-comment-selector>
+    <ul id="list-comments">
+      <li *ngFor="let comment of factCommentsToDisplay">
+        <div class="comment">
+          <span class="glyphicon glyphicon-user"> {{comment.username}}</span>
+          <div class="comment-content">
+            {{comment.comment}}
+          </div>
+        </div>
+      </li>
+    </ul>
+    <button *ngIf="!noMoreComments" (click)='loadMoreComments()' class="btn btn-default">Load More</button>
+    <span *ngIf="noMoreComments"> no more comments</span>
+  </div>
 </section>

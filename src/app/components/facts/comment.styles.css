@@ -1,0 +1,14 @@
+.publish-button {
+  text-align: right;
+  margin: 10px;
+  color: dodgerblue;
+  background-color: white;
+  border: 1px solid dodgerblue;
+}
+.comment-section{
+  text-align: right;
+}
+
+textarea{
+  width: 100%;
+}

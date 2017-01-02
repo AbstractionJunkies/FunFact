@@ -1,14 +1,104 @@
-.fact{
-    width: 600px;
+.fact {
+  width: 600px;
 }
-.fact-image-big{
-    width:600px;
+
+.fact-image-big {
+  width: 600px;
 }
-ul{
-    list-style-type: none;
+
+ul {
+  list-style-type: none;
 }
-.comment{
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 5px;
+
+.fact-icons {
+  text-align: right;
+}
+
+#add-favourite-button {
+  text-align: left;
+  background-color: orangered;
+  color: white;
+  border: 1px solid orangered;
+  font-weight: bold;
+}
+
+#add-favourite-button:active {
+  background-color: white;
+  color: orangered;
+  border-color: orangered;
+}
+
+#add-favourite-button:focus {
+  background-color: white;
+  color: orangered;
+  border-color: orangered;
+}
+
+#add-favourite-button:target {
+  background-color: white;
+  color: orangered;
+  border-color: orangered;
+}
+
+#back-button {
+  background-color: dodgerblue;
+  color: white;
+  border: 1px solid dodgerblue;
+  padding: 6px 40px;
+  font-weight: bold;
+}
+
+.wrapper div {
+  margin: 10px;
+}
+
+.btn-send-rate {
+  background-color: white;
+  border: 1px solid dodgerblue;
+  color: dodgerblue;
+  font-weight: bold;
+}
+
+#rating {
+  display: inline-block;
+  text-align: left;
+}
+
+.rate-value-wrapper {
+  display: inline-block;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  vertical-align: top;
+}
+
+.rating-wrapper {
+  text-align: left;
+  border-top: 1px solid darkgray;
+  margin: 10px;
+  position: relative;
+}
+
+.comment {
+  text-align: left;
+  background-color: white;
+  margin: 0 !important;
+  padding: 5px;
+  border-bottom: 1px solid lightgray;
+}
+
+.comment span {
+  color: dodgerblue;
+  font-weight: bold;
+
+}
+
+.comment-content {
+  margin-top: 1px;
+}
+
+#list-comments {
+  padding: 0;
+  text-align: left;
+  width: 100%;
 }
