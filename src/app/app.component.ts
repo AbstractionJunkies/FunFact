@@ -16,11 +16,11 @@ import { UserService } from './components/user/user.service';
 })
 export class AppComponent implements OnInit {
   public title: string;
-  public url: string = 'http://localhost:1337/api/home';
+  public url: string = 'https://fun-fact-api.herokuapp.com/api/home';
   public userAvatar: string;
   state: string = 'active';
 
-  private imgUrl: string = 'http://localhost:1337/static/images/user-аvatar-images/';
+  private imgUrl: string = 'https://fun-fact-api.herokuapp.com/static/images/user-аvatar-images/';
 
   constructor(
     private _authService: AuthenticationService,

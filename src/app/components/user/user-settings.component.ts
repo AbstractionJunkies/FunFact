@@ -17,7 +17,7 @@ export class UserSettingsComponent implements OnInit {
     private username: string;
     private userId: string;
 
-    private imgUrl: string = 'http://localhost:1337/static/images/user-аvatar-images/';
+    private imgUrl: string = 'https://fun-fact-api.herokuapp.com/static/images/user-аvatar-images/';
 
     public userSettingsToUpdate: FormGroup;
     public notificationOptions: Object;

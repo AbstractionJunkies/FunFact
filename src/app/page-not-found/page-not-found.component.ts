@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 
-const homePageUrl = 'http://localhost:4200/#/home';
+const homePageUrl = 'https://fun-fact.herokuapp.com/#/home';
 
 @Component({
   selector: 'app-page-not-found',

@@ -15,10 +15,10 @@ export class UserAvatarSettings implements OnInit {
     private events: EventEmitter<any> = new EventEmitter();
     private username: string;
     private userAvatar: string;
-    private imgUrl: string = 'http://localhost:1337/static/images/user-аvatar-images/';
+    private imgUrl: string = 'https://fun-fact-api.herokuapp.com/static/images/user-аvatar-images/';
 
     private options: any = {
-        url: 'http://localhost:1337/api/users/user/avatar',
+        url: 'https://fun-fact-api.herokuapp.com/api/users/user/avatar',
         data: {
             username: '',
         },

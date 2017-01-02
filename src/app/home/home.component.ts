@@ -73,6 +73,6 @@ export class HomeComponent implements OnInit {
     this.voted = false;
   }
   showAllFacts() {
-    window.location.href = "http://localhost:4200/#/facts/all";
+    window.location.href = "https://fun-fact.herokuapp.com//#/facts/all";
   }
 }
