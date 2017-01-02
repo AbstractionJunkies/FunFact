@@ -16,7 +16,7 @@
 - Admins can restore deleted facts
 - Blocked users do not have right to login into the application
 
-## Used techologies
+## Used tecnhologies
 - Angular 2 for the front-end
 - NodeJs(Express) for the back-end
 - MongoDb
