@@ -23,7 +23,6 @@ export class FactUploadComponent implements OnInit {
   private events: EventEmitter<any> = new EventEmitter();
 
   constructor(private _authService: AuthenticationService) {
-    this.imgPrev = 'asdasdasdasdasd2';
   }
 
   startUpload(title, category, file) {
@@ -35,12 +34,14 @@ export class FactUploadComponent implements OnInit {
       return;
     }
     this.events.emit('startUpload');
+    //TODO: CHange url here when deploying
+    window.location.href = 'http://localhost:4200/#/facts/all';
   }
 
   ngOnInit(): void {
     this.options.authToken = JSON.stringify(localStorage.getItem('auth_token'));
     this.options.authTokenPrefix = '';
-    this.imgPrev = 'asdasdasdasd';
+    this.imgPrev = 'http://dethleffscaravans.co.nz/wp-content/uploads/2016/03/qqq.jpg';
 
     this._authService.getLoggedUser()
       .subscribe(res => {
@@ -49,11 +50,11 @@ export class FactUploadComponent implements OnInit {
       });
   }
 
-   fileChangeEvent(fileInput: any){
+  fileChangeEvent(fileInput: any) {
     if (fileInput.target.files && fileInput.target.files[0]) {
       let reader = new FileReader();
       let component = this;
-      reader.onload = function (e : any) {
+      reader.onload = function (e: any) {
         console.log(e.target);
         component.setImagePrev(e.target.result);
       };
@@ -61,7 +62,8 @@ export class FactUploadComponent implements OnInit {
       reader.readAsDataURL(fileInput.target.files[0]);
     }
   }
-  setImagePrev(str:any){
+
+  setImagePrev(str: any) {
     this.imgPrev = str;
   }
 

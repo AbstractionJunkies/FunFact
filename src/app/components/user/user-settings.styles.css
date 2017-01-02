@@ -4,11 +4,17 @@
 }
 button, .button{
     background-color: white;
-    border: 3px solid dodgerblue;
+    border: 2px solid dodgerblue;
     height: 50px;
     font-weight: bold;
     cursor: pointer;
 }
 button:hover, .button:hover{
     background-color: yellow;
+}
+.container {
+  display: block;
+  float: none;
+  width: 100%;
+  margin: 20px;
 }

@@ -1,18 +1,29 @@
-<h1>...you can share your knowledge with the others!</h1>
-<div class="form-group">
+<h1>...you can share your knowledge with the world!</h1>
+<div class="form-group fact-inputs">
   <div class="col-xs-5 fact-title">
     <label for="ex1">Title</label>
     <input class="form-control" id="ex1" type="text" #title>
   </div>
-  <div class="col-xs-2">
-    <label>Category</label>
-    <select #category>
+  <div class="col-xs-2 fact-category">
+    <label for="category-select">Category</label>
+    <select class="btn btn-secondary" id="category-select" #category>
       <option value="select">Please select</option>
       <option value="fun">Fun</option>
       <option value="dev">Dev</option>
     </select>
   </div>
-  <input id="file-input" type="file" #file [events]="events" (change)="fileChangeEvent($event)" ngFileSelect [options]="options">
-  <img id="img-prev" [src]="imgPrev" alt="your image" />
-  <input type="button" class="button btn" value="Upload" (click)="startUpload(title.value,category.value,file.value)"/>
+  <div class="fact-buttons col-xs-2">
+    <label class="btn btn-default btn-file" id="image-upload-label">
+      Upload Image:
+      <input class="btn btn-default btn-file" id="file-input" type="file" #file [events]="events"
+             (change)="fileChangeEvent($event)"
+             ngFileSelect [options]="options">
+    </label>
+
+    <input type="button" class="button btn btn-secondary" id="image-post-button" value="Post"
+           (click)="startUpload(title.value,category.value,file.value)"/>
+  </div>
+</div>
+<div class="image-preview">
+  <img id="img-prev" [src]="imgPrev" alt="your image"/>
 </div>
