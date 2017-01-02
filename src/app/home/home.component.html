@@ -3,18 +3,15 @@
 </h3>
 <div >
   <img *ngIf="!voted" class="fact-image-big" [src]='randomFact.img'>
-  <br/>
-  <br/>
-  <br/>
   <div *ngIf="voted" class="knowledgeBar">
     <knowledge-pie-chart
       [countYes]="randomFact.knowledgeCount.yes"
       [countNo]="randomFact.knowledgeCount.no">
     </knowledge-pie-chart>
   </div>
-  <div class="knowledgeButtons">
-    <button (click)="onYesClick()">Yes!</button>
-    <button (click)="onNoClick()">No!</button>
+  <div *ngIf="!voted" class="knowledgeButtons">
+    <button id="yes-button" class="btn" (click)="onYesClick()">Yes!</button>
+    <button id="no-button" class="btn" (click)="onNoClick()">No!</button>
   </div>
 
 </div>

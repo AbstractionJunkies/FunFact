@@ -2,7 +2,27 @@ img{
   max-width: 500px;
 }
 .knowledgeBar{
-  width: 700px;
+  width: 900px;
+  font-size: 21px;
   text-align: center;
   height: auto;
+  margin: auto;
 }
+div button{
+  width: 200px;
+  height: 50px;
+  display: inline-block;
+  margin-top: 35px;
+  background-color: white;
+  border: 2px solid black;
+  font-size: 21px;
+}
+#yes-button{
+  color: forestgreen;
+  border-color: forestgreen;
+}
+#no-button{
+  color: #FF0000;
+  border-color: #FF0000;
+}
+
