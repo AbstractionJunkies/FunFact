@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter} from '@angular/core';
 import {HomeComponentService} from './home.service';
 import {KnowledgePieChartComponent} from './chart-component/knowledge-pie-chart.components';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+import {ChartsModule} from 'ng2-charts/ng2-charts';
 
 import 'rxjs/add/operator/switchMap';
 import {Fact} from "../components/facts/fact";
@@ -14,7 +14,7 @@ import {Observable} from "rxjs";
 })
 export class HomeComponent implements OnInit {
   public randomFact: Fact;
-  public voted:Boolean;
+  public voted: Boolean;
 
   title: string;
 
@@ -57,5 +57,10 @@ export class HomeComponent implements OnInit {
         (err: any) => {
           console.log(err);
         });
+  }
+
+  standby() {
+    //TODO: download the image!
+    this.randomFact.img = 'http://bento.cdn.pbs.org/hostedbento-prod/filer_public/_bento_media/img/no-image-available.jpg';
   }
 }
