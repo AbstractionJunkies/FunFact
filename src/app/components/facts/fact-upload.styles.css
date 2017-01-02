@@ -1,10 +1,14 @@
 .button {
     background-color: white;
-    border: 3px solid dodgerblue;
+    border: 2px solid dodgerblue;
     height: 50px;
     font-weight: bold;
     cursor: pointer;
 }
 .button:hover{
     background-color: yellow;
+}
+.facts-title{
+  display: block;
+  float: none;
 }
